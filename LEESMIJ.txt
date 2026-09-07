@@ -1,0 +1,46 @@
+BRANDVIZER WEBSITE (v6, "Eerst meten, dan bouwen")
+===================================================
+
+Eén bestand (index.html) plus de map assets/img. Direct te uploaden naar hosting,
+Vercel of Netlify. De vorige versie staat in _oud-v5.
+
+WAT DEZE VERSIE DOET
+--------------------
+  • Boodschap: "Je product lekt klanten. Vaak op plekken die je niet ziet."
+  • Aanpak in twee fases: Product Scan (eenmalig, vaste prijs) en Samen verbeteren
+  • Digitaal kennismaken: zelfcheck van 5 vragen met diagnose en vooringevulde mail
+  • Drie uitgewerkte cases met pins in het beeld (wat lekte, wat ik deed, waarom het werkte)
+  • Persoonlijk: foto, handgeschreven notities, plaknotities, "ik" in plaats van "wij"
+  • Mobiel: eigen menu, sticky knop "Doe de check", notities onder het voorbeeldscherm
+
+BEELDEN VERVANGEN (zelfde bestandsnamen aanhouden)
+--------------------------------------------------
+  assets/img/rudolf.jpg                 portretfoto, staand 4:5, min. 1000 px breed
+  assets/img/case-belastingdienst.jpg   liggend 4:3, min. 1600 px breed
+  assets/img/case-easyjobs.jpg          liggend 4:3
+  assets/img/case-abnamro.jpg           liggend 4:3
+
+De roze pins op de casebeelden staan op vaste posities (left/top in procenten).
+Zoek in index.html op 'class="pin"' en schuif ze naar de juiste plek in je screenshot.
+
+NOG INVULLEN
+------------
+  • Prijs Product Scan: zoek op "€2.450"
+  • Resultaten per case: zoek op "[cijfer]"
+  • Casetekst controleren: zoek op "De situatie"
+  • Zelfcheck teksten: zoek op "function result" in het script
+
+TECHNIEK
+--------
+Lettertypen via Google Fonts (Bricolage Grotesque, Instrument Sans, Caveat).
+Animaties via GSAP (CDN). Zonder internet blijft alles leesbaar, alleen zonder beweging.
+De zelfcheck slaat niets op en stuurt niets weg; de mailknop opent het mailprogramma van de bezoeker.
+"Verminderde beweging" in systeeminstellingen wordt gerespecteerd.
+
+LOGBOEK
+-------
+v6 (7 sep 2026)  Volledig nieuwe site: probleemgerichte boodschap, twee-fasen aanpak,
+                 zelfcheck, drie uitgewerkte cases, nieuwe huisstijl (ruitjespapier,
+                 inktblauw, roze voor probleem, groen voor opgelost, geel voor notities)
+v5 (7 sep 2026)  Bugfixes en echte projecten in de oude opzet (zie _oud-v5)
+v1 tot v4        Eerdere sessie, donkere "AI-snelheid" versie
