@@ -270,6 +270,14 @@
   .chips-b button{background:rgba(255,255,255,.06);border:1.5px solid rgba(255,255,255,.14);color:#fff;border-radius:999px;padding:10px 16px;font-size:var(--small);font-weight:600;cursor:pointer;transition:background .2s,border-color .2s}
   .chips-b button:hover{border-color:rgba(255,255,255,.4)}
   .chips-b button.on{background:var(--note);border-color:var(--note);color:var(--note-ink)}
+  .book-field.hp{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}
+  .err-p{color:var(--pink)!important}
+  .btn.busy{opacity:.6;pointer-events:none}
+  .done{display:none;text-align:center;padding:20px 0}
+  .done.on{display:block;animation:fade .5s var(--ease)}
+  .done-mark{width:64px;height:64px;border-radius:50%;background:var(--green);color:#fff;font-size:30px;font-weight:800;display:flex;align-items:center;justify-content:center;margin:0 auto 18px}
+  .done h3{color:#fff}
+  .done .ex{max-width:48ch;margin-left:auto;margin-right:auto}
   /* Cases */
   .cs{display:grid;grid-template-columns:minmax(var(--pad),1fr) minmax(0,780px) minmax(0,620px) minmax(var(--pad),1fr);column-gap:clamp(28px,5vw,80px);align-items:start;background:var(--white);border-top:1px solid var(--line);padding:clamp(44px,6vw,90px) 0;margin-top:48px}
   .cs:last-of-type{border-bottom:1px solid var(--line)}
@@ -315,6 +323,14 @@
   .csm-text p{color:var(--ink2);margin-bottom:12px}
   .csm-text p b{color:var(--ink);font-weight:600}
 
+  /* Kennis */
+  .klist{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin:44px 0 30px}
+  .kcard{background:var(--white);border:1px solid var(--line);border-radius:22px;padding:26px 26px 24px;text-decoration:none;display:flex;flex-direction:column;transition:transform .4s var(--ease),box-shadow .4s;position:relative}
+  .kcard::before{content:"";position:absolute;left:26px;top:0;width:44px;height:4px;background:var(--pink);border-radius:0 0 4px 4px}
+  .kcard:hover{transform:translateY(-4px);box-shadow:0 24px 60px rgba(15,27,45,.12)}
+  .kcard .cat{font-size:var(--small);color:var(--mute);font-weight:600;margin:6px 0 10px}
+  .kcard h3{font-size:var(--h4);margin-bottom:10px} .kcard p{color:var(--ink2);font-size:var(--small);flex:1}
+  .kcard .more{margin-top:16px;font-family:var(--display);font-weight:600;color:var(--pink)}
   /* About */
   .about{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(30px,5vw,80px);align-items:center}
   .about-photo{position:relative}
@@ -371,6 +387,7 @@
     .cs.flip .cs-thumbs{padding-left:var(--pad);padding-right:0;justify-content:flex-start}
     .cs-grid{grid-template-columns:1fr}
     .about{grid-template-columns:1fr}
+    .klist{grid-template-columns:1fr}
     .about-photo{max-width:360px}
     .contact{grid-template-columns:1fr}
     .nav-links{display:none}
@@ -402,14 +419,14 @@
   <a class="brand" href="#top"><i></i>Brandvizer</a>
   <div class="nav-right">
     <nav class="nav-links" aria-label="Hoofdmenu">
-      <a href="#pijn">Herken je dit?</a><a href="#aanpak">Aanpak</a><a href="#pakketten">Pakketten</a><a href="#cases">Cases</a><a href="#over">Over Rudolf</a><a href="#contact">Contact</a>
+      <a href="#pijn">Herken je dit?</a><a href="#aanpak">Aanpak</a><a href="#pakketten">Pakketten</a><a href="#cases">Cases</a><a href="/kennis">Kennis</a><a href="#over">Over Rudolf</a><a href="#contact">Contact</a>
     </nav>
     <a class="btn sm pink" href="#check">Welk pakket past?</a>
     <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="mmenu">Menu</button>
   </div>
 </header>
 <nav class="mmenu" id="mmenu" aria-label="Mobiel menu">
-  <a href="#pijn">Herken je dit?</a><a href="#aanpak">Aanpak</a><a href="#pakketten">Pakketten</a><a href="#check" class="accent">Welk pakket past?</a><a href="#cases">Cases</a><a href="#over">Over Rudolf</a><a href="#contact">Contact</a>
+  <a href="#pijn">Herken je dit?</a><a href="#aanpak">Aanpak</a><a href="#pakketten">Pakketten</a><a href="#check" class="accent">Welk pakket past?</a><a href="#cases">Cases</a><a href="/kennis">Kennis</a><a href="#over">Over Rudolf</a><a href="#contact">Contact</a>
 </nav>
 
 <main id="top">
@@ -673,13 +690,22 @@
           <div class="book-field"><label for="bComp">Bedrijf</label><input id="bComp" type="text" autocomplete="organization" placeholder="Naam van je bedrijf"></div>
           <div class="book-field"><label for="bMail">E-mail</label><input id="bMail" type="email" autocomplete="email" placeholder="jij@bedrijf.nl"></div>
           <div class="book-field"><label for="bTel">Telefoon <span>(mag ook leeg)</span></label><input id="bTel" type="tel" autocomplete="tel" placeholder="06 ..."></div>
+          <div class="book-field hp" aria-hidden="true"><label for="bWeb">Website</label><input id="bWeb" type="text" tabindex="-1" autocomplete="off"></div>
           <div class="book-field full"><label for="bNote">Iets wat ik vooraf moet weten? <span>(mag ook leeg)</span></label><textarea id="bNote" rows="2" placeholder="Bijvoorbeeld: we hebben nu een site bij Wix, of: het moet vóór de zomer live"></textarea></div>
         </div>
         <div class="actions">
           <a class="btn pink" id="bSend" href="#">Verstuur en plan het gesprek</a>
           <button class="btn ghost" type="button" id="bBack">Terug</button>
         </div>
-        <p class="note-p" id="bHint">Dit opent een mail aan mij met alles al ingevuld: je antwoorden, je voorkeur en je gegevens. Je hoeft alleen op verzenden te drukken. Ik reageer binnen één werkdag met concrete momenten.</p>
+        <p class="note-p" id="bHint">Je krijgt direct een bevestiging per mail. Ik reageer binnen één werkdag met twee of drie concrete momenten. Je gegevens gebruik ik alleen om contact op te nemen.</p>
+        <p class="note-p err-p" id="bErr" hidden></p>
+      </div>
+
+      <div class="done" id="done">
+        <div class="done-mark">✓</div>
+        <h3>Gelukt. Je aanvraag is binnen.</h3>
+        <p class="ex" id="doneTxt">Ik heb je een bevestiging gemaild. Binnen één werkdag krijg je van mij twee of drie momenten voor een gesprek van 30 minuten.</p>
+        <p class="ex" style="margin-top:10px">Kun je niet wachten? Bel me gewoon: <a href="tel:+31643426082" style="color:var(--note)">06 43 42 60 82</a>.</p>
       </div>
     </div>
   </div>
@@ -856,6 +882,15 @@
   </div>
 </section>
 
+<!-- KENNIS -->
+<section id="kennis" class="sec wrap">
+  <div class="eyebrow rv">Lezen voordat je kiest</div>
+  <h2 class="h2 rv">Eerst weten hoe het zit? <span class="mark" data-mark>Lees dit.</span></h2>
+  <p class="lead rv" style="margin-top:22px">Eerlijke stukken over wat het kost, hoe je kiest en waarom de meeste sites geen klanten opleveren. Voor ondernemers, niet voor designers.</p>
+  <div class="klist"><a class="kcard rv" href="/kennis/wat-kost-een-website-laten-maken"><div class="cat">Prijzen · 6 minuten</div><h3>Wat kost een website laten maken in 2026?</h3><p>Eerlijke prijzen voor een website laten maken: wat een webbouwer, een bureau en zelf bouwen met AI kosten, waar het verschil in zit en wanneer je te veel betaalt.</p><div class="more">Lees verder</div></a><a class="kcard rv" href="/kennis/bureau-freelancer-of-zelf-met-ai"><div class="cat">Kiezen · 5 minuten</div><h3>Bureau, webbouwer of zelf met AI: wat past bij jouw bedrijf?</h3><p>Een eerlijke vergelijking van de drie manieren om een website of app te laten maken: bureau, webbouwer en zelf bouwen met AI. Met de voordelen, de valkuilen en wanneer je welke kiest.</p><div class="more">Lees verder</div></a><a class="kcard rv" href="/kennis/waarom-je-website-geen-klanten-oplevert"><div class="cat">Verbeteren · 7 minuten</div><h3>Waarom je nieuwe website geen klanten oplevert (en drie dingen die je morgen kunt fixen)</h3><p>Je website ziet er goed uit, maar levert niets op. Dit zijn de zeven lekken die ik het vaakst zie bij MKB-websites, en drie fixes die je zelf vandaag kunt doen.</p><div class="more">Lees verder</div></a></div>
+  <p class="rv"><a class="btn ghost" href="/kennis">Alle artikelen</a></p>
+</section>
+
 <!-- OVER -->
 <section id="over" class="sec wrap">
   <div class="about">
@@ -900,7 +935,7 @@
 <footer class="wrap">
   <div class="row">
     <span>© 2026 Brandvizer · Rudolf van der Velde · Vaassen · Websites en apps voor Apeldoorn, Zwolle, Deventer en de Veluwe</span>
-    <span><a href="#aanpak">Aanpak</a><a href="#pakketten">Pakketten</a><a href="#cases">Cases</a><a href="#over">Over</a><a href="mailto:rudolf@brandvizer.nl">Mail</a></span>
+    <span><a href="#aanpak">Aanpak</a><a href="#pakketten">Pakketten</a><a href="#cases">Cases</a><a href="/kennis">Kennis</a><a href="#over">Over</a><a href="mailto:rudolf@brandvizer.nl">Mail</a></span>
   </div>
 </footer>
 
@@ -987,7 +1022,7 @@
     setTimeout(function(){ if(i<total-1) show(i+1); else result(); }, 260);
   }); }); });
   qBack.addEventListener('click',function(){ if(cur>0) show(cur-1); });
-  document.getElementById('rReset').addEventListener('click',function(){ answers=[]; document.querySelectorAll('.opt').forEach(function(x){x.classList.remove('sel');}); document.getElementById('res').classList.remove('on'); document.getElementById('book').classList.remove('on'); qnav.style.display='flex'; show(0); });
+  document.getElementById('rReset').addEventListener('click',function(){ answers=[]; document.querySelectorAll('.opt').forEach(function(x){x.classList.remove('sel');}); document.getElementById('res').classList.remove('on'); document.getElementById('book').classList.remove('on'); document.getElementById('done').classList.remove('on'); qnav.style.display='flex'; show(0); });
 
   /* ---- Afspraak plannen ---- */
   var BOOKING_URL=''; // Zet hier je Cal.com of Calendly link neer (bv. 'https://cal.com/rudolf/kennismaking'). Leeg = via mail.
@@ -1008,8 +1043,21 @@
       var u=BOOKING_URL+(BOOKING_URL.indexOf('?')>0?'&':'?')+'name='+encodeURIComponent(name)+'&email='+encodeURIComponent(mail)+'&notes='+encodeURIComponent('Bedrijf: '+comp+'\nTelefoon: '+tel+'\n\n'+c.summary+'\nPakket: '+c.pk+'\n\n'+pref+'\n\n'+note);
       window.open(u,'_blank'); return;
     }
-    var body='Hoi Rudolf,\n\nIk wil graag een gesprek van 30 minuten plannen.\n\nWANNEER PAST HET MIJ\n'+pref+'\n\nMIJN GEGEVENS\nNaam: '+name+'\nBedrijf: '+comp+'\nE-mail: '+mail+'\nTelefoon: '+(tel||'-')+'\n\nUITKOMST VAN DE CHECK\n'+c.summary+'\nJouw inschatting: '+c.diag+'\nPakket: '+c.pk+(note?'\n\nVOORAF GOED OM TE WETEN\n'+note:'')+'\n\nGroeten,\n'+name;
-    location.href='mailto:rudolf@brandvizer.nl?subject='+encodeURIComponent('Gesprek plannen: '+(comp||name))+'&body='+encodeURIComponent(body);
+    var btn=document.getElementById('bSend'), errEl=document.getElementById('bErr');
+    btn.classList.add('busy'); btn.textContent='Versturen...'; errEl.hidden=true;
+    var payload={name:name,email:mail,company:comp,phone:tel,note:note,days:gDays(),part:gPart(),where:gWhere(),pk:c.pk,diag:c.diag,summary:c.summary,website:document.getElementById('bWeb').value};
+    function fallbackMail(){
+      var body='Hoi Rudolf,\n\nIk wil graag een gesprek van 30 minuten plannen.\n\nWANNEER PAST HET MIJ\n'+pref+'\n\nMIJN GEGEVENS\nNaam: '+name+'\nBedrijf: '+comp+'\nE-mail: '+mail+'\nTelefoon: '+(tel||'-')+'\n\nUITKOMST VAN DE CHECK\n'+c.summary+'\nJouw inschatting: '+c.diag+'\nPakket: '+c.pk+(note?'\n\nVOORAF GOED OM TE WETEN\n'+note:'')+'\n\nGroeten,\n'+name;
+      location.href='mailto:rudolf@brandvizer.nl?subject='+encodeURIComponent('Gesprek plannen: '+(comp||name))+'&body='+encodeURIComponent(body);
+    }
+    fetch('/api/aanvraag',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)})
+      .then(function(r){ return r.json().then(function(j){ return {ok:r.ok && j.ok, j:j}; }); })
+      .then(function(o){
+        if(o.ok){ book.classList.remove('on'); document.getElementById('done').classList.add('on'); document.getElementById('checkBody').scrollIntoView({behavior:reduce?'auto':'smooth',block:'nearest'}); }
+        else { errEl.textContent='Versturen lukte niet ('+(o.j&&o.j.error?o.j.error:'onbekende fout')+'). Ik open je mailprogramma als alternatief.'; errEl.hidden=false; setTimeout(fallbackMail,1200); }
+      })
+      .catch(function(){ errEl.textContent='Geen verbinding met de server. Ik open je mailprogramma als alternatief.'; errEl.hidden=false; setTimeout(fallbackMail,1200); })
+      .then(function(){ btn.classList.remove('busy'); btn.textContent='Verstuur en plan het gesprek'; });
   });
   show(0);
 
