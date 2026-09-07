@@ -43,7 +43,7 @@ FOOT='''<footer class="wrap">
 '''
 ASIDE='''<aside class="aside">
   <div class="aside-card"><div class="k">Twee minuten</div><h4>Welk pakket past bij jouw bedrijf?</h4><p>Vijf vragen, dan weet je wat je nodig hebt en wat het ongeveer kost. Geen account, geen nieuwsbrief.</p><a class="btn" href="/#check">Doe de check</a></div>
-  <div class="aside-me"><img src="/assets/img/rudolf-foto.jpg" alt="Rudolf van der Velde"><div><b>Rudolf van der Velde</b><span>Ontwerpt en bouwt websites en apps voor ondernemers. Vijftien jaar ervaring bij banken en overheid. Vaassen.</span></div></div>
+  <div class="aside-me"><img src="/assets/img/rudolf-foto.jpg" alt="Rudolf van der Velde"><b>Rudolf van der Velde</b><span>Ontwerpt en bouwt websites en apps voor ondernemers. Vijftien jaar ervaring bij banken en overheid. Vaassen.</span></div>
   <div class="aside-list"><div class="k">Ook lezen</div>{links}</div>
 </aside>'''
 CTA='''<section class="wrap"><div class="art-cta">

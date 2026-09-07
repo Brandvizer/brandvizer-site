@@ -66,9 +66,9 @@ p{margin:0} a{color:inherit} img{max-width:100%;display:block}
 .aside-card h4{color:#fff;margin-bottom:10px}
 .aside-card p{font-size:var(--small);color:rgba(255,255,255,.75)}
 .aside-card .btn{margin-top:16px;width:100%;background:var(--pink);border-color:var(--pink)}
-.aside-me{display:flex;gap:14px;align-items:center;background:var(--white);border:1px solid var(--line);border-radius:20px;padding:18px}
-.aside-me img{width:64px;height:64px;border-radius:50%;object-fit:cover}
-.aside-me b{font-family:var(--display);display:block} .aside-me span{font-size:var(--small);color:var(--mute)}
+.aside-me{display:grid;grid-template-columns:56px 1fr;column-gap:14px;align-items:center;background:var(--white);border:1px solid var(--line);border-radius:20px;padding:20px}
+.aside-me img{width:56px;height:56px;border-radius:50%;object-fit:cover}
+.aside-me b{font-family:var(--display);font-size:var(--h4);letter-spacing:-.02em} .aside-me span{grid-column:1/-1;display:block;margin-top:12px;font-size:var(--small);color:var(--mute);line-height:1.5}
 .aside-list{background:var(--white);border:1px solid var(--line);border-radius:20px;padding:20px 22px}
 .aside-list .k{font-family:var(--hand);font-size:var(--hand-m);color:var(--pink);line-height:1;margin-bottom:10px}
 .aside-list a{display:block;text-decoration:none;font-size:var(--small);font-weight:600;padding:9px 0;border-top:1px solid var(--line)}
