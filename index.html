@@ -166,23 +166,19 @@
   .step3 h3{font-size:var(--h4);margin:4px 0 10px}
   .step3 p{color:var(--ink2)}
   /* Packs */
-  .packs{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:44px}
+  .packs{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:22px}
   .pack{background:var(--white);border:1px solid var(--line);border-radius:24px;padding:32px 30px;display:flex;flex-direction:column;position:relative;transition:transform .4s var(--ease),box-shadow .4s}
   .pack:hover{transform:translateY(-4px);box-shadow:0 24px 60px rgba(15,27,45,.12)}
-  .pack.kick{border:2px solid var(--ink);grid-column:span 3;display:grid;grid-template-columns:1fr 1.2fr;column-gap:40px;align-items:start}
-  .pack.kick>*{grid-column:1}
-  .pack.kick ul{grid-column:2;grid-row:2/span 4;margin-top:0;align-self:center}
-  .pack.kick .btn{justify-self:start;width:auto}
+  .kick-line{display:flex;gap:18px;align-items:center;margin-top:36px;background:var(--white);border:2px solid var(--ink);border-radius:18px;padding:18px 22px}
+  .kick-line .kick-badge{flex-shrink:0;font-family:var(--hand);font-weight:600;font-size:var(--hand-m);line-height:1;background:var(--note);color:var(--note-ink);padding:10px 14px;border-radius:12px;transform:rotate(-2deg)}
+  .kick-line div:last-child{color:var(--ink2)} .kick-line b{color:var(--ink);font-weight:600}
+  .after-line{margin-top:26px;color:var(--ink2);max-width:70ch} .after-line b{color:var(--ink);font-weight:600}
   .pack.feat{background:var(--ink);color:#fff;border-color:var(--ink)}
   .pack.feat .ph{color:var(--note)}
   .pack.feat p,.pack.feat li{color:rgba(255,255,255,.85)}
   .pack.feat .meta span{background:rgba(255,255,255,.12);color:#fff}
   .pack.feat .meta span.price{background:var(--note);color:var(--note-ink)}
   .pack.feat .btn{background:var(--pink);border-color:var(--pink)}
-  .pack.ongoing{grid-column:span 3;display:grid;grid-template-columns:1fr 1.2fr;column-gap:40px;background:var(--green-soft);border-color:transparent}
-  .pack.ongoing>*{grid-column:1}
-  .pack.ongoing ul{grid-column:2;grid-row:2/span 4;margin-top:0;align-self:center}
-  .pack.ongoing .btn{justify-self:start;width:auto}
   .pack .ph{font-family:var(--hand);font-size:var(--hand-l);color:var(--pink)}
   .pack h3{font-size:var(--h4);margin:4px 0 12px}
   .pack .meta{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 16px}
@@ -377,9 +373,7 @@
     .why-grid{grid-template-columns:1fr 1fr}
     .steps3{grid-template-columns:1fr}
     .packs{grid-template-columns:1fr}
-    .pack.kick,.pack.ongoing{grid-column:auto;display:flex}
-    .pack.kick ul,.pack.ongoing ul{margin-top:18px}
-    .pack.kick .btn,.pack.ongoing .btn{width:100%}
+    .kick-line{flex-direction:column;align-items:flex-start}
     .cs,.cs.flip{grid-template-columns:minmax(0,1fr);row-gap:26px;padding:28px 0 40px}
     .cs-thumbs button{width:60px;height:45px}
     .cs-media,.cs.flip .cs-media{grid-column:1;order:0;position:relative;top:auto}
@@ -546,51 +540,36 @@
 <!-- PAKKETTEN -->
 <section id="pakketten" class="sec wrap">
   <div class="eyebrow rv">Pakketten</div>
-  <h2 class="h2 rv">Vaste prijzen. <span class="mark" data-mark>Geen verrassingen.</span></h2>
-  <p class="lead rv" style="margin-top:22px">Vanaf-prijzen, exclusief btw. Na de Kickstart weet je het precieze bedrag. Twijfel je welk pakket past? <a href="#check">Doe de check</a>.</p>
+  <h2 class="h2 rv">Drie smaken. <span class="mark" data-mark>Vaste prijzen.</span></h2>
+  <p class="lead rv" style="margin-top:22px">Vanaf-prijzen, exclusief btw. Twijfel je welke past? <a href="#check">Doe de check</a>, dan weet je het in twee minuten.</p>
+  <div class="kick-line rv">
+    <div class="kick-badge">Stap 1, altijd</div>
+    <div><b>Elk pakket begint met een Kickstart.</b> Eén week, €950. Je krijgt een klikbaar prototype en een vaste prijs voor de bouw. Ga je door, dan wordt de €950 verrekend. Ga je niet door, dan heb je een plan waar je mee verder kunt.</div>
+  </div>
   <div class="packs">
-    <div class="pack kick rv">
-      <div class="sticky-note">Hier begint het altijd</div>
-      <div class="ph">Stap 1</div>
-      <h3>Kickstart</h3>
-      <div class="meta"><span>1 week</span><span class="price">€950</span></div>
-      <p>Je weet dat je iets wilt, maar niet precies wat. In één week: wat je nodig hebt, wat het kost, en een klikbaar prototype dat je aan je klanten kunt laten zien.</p>
-      <ul><li>Gesprek over je klanten en je doelen</li><li>Klikbaar prototype van de belangrijkste schermen</li><li>Vaste prijs en planning voor de bouw</li><li>Ga je door? Dan wordt de €950 verrekend</li></ul>
-      <a class="btn" href="#contact">Plan een Kickstart</a>
-    </div>
     <div class="pack rv">
       <div class="ph">Website</div>
-      <h3>Een site die klanten oplevert</h3>
+      <h3>Gevonden worden en aanvragen krijgen</h3>
       <div class="meta"><span>2 tot 3 weken</span><span class="price">Vanaf €3.950</span></div>
-      <p>Voor bedrijven die gevonden willen worden en aanvragen willen krijgen.</p>
-      <ul><li>Ontwerp én bouw</li><li>Teksten die verkopen</li><li>Vindbaar in Google, snel, op elk scherm</li><li>Meten wat het doet</li><li>Hosting en domein geregeld</li><li>Zelf teksten en foto's aanpassen</li></ul>
+      <ul><li>Ontwerp, bouw en teksten die verkopen</li><li>Vindbaar in Google, snel, op elk scherm</li><li>Hosting geregeld, zelf aan te passen</li></ul>
       <a class="btn ghost" href="#contact">Vraag een voorstel aan</a>
     </div>
     <div class="pack feat rv">
       <div class="ph">Webshop of webapp</div>
-      <h3>Bestellen, boeken of een portaal</h3>
+      <h3>Klanten laten bestellen, boeken of inloggen</h3>
       <div class="meta"><span>4 tot 6 weken</span><span class="price">Vanaf €7.500</span></div>
-      <p>Voor bedrijven waar klanten iets moeten kunnen doen: bestellen, boeken, inloggen, aanvragen.</p>
-      <ul><li>Onderzoek bij je klanten</li><li>Prototype getest vóór de bouw</li><li>Ontwerp én bouw, koppelingen met wat je al gebruikt</li><li>Meten wat het doet</li><li>Hosting en beheer geregeld</li></ul>
+      <ul><li>Onderzoek en prototype getest vóór de bouw</li><li>Ontwerp, bouw en koppelingen met wat je al gebruikt</li><li>Hosting en beheer geregeld</li></ul>
       <a class="btn" href="#contact">Vraag een voorstel aan</a>
     </div>
     <div class="pack rv">
       <div class="ph">App</div>
       <h3>iOS en Android, van idee tot in de store</h3>
       <div class="meta"><span>6 tot 10 weken</span><span class="price">Vanaf €12.500</span></div>
-      <p>Voor bedrijven die klanten of medewerkers iets in handen willen geven dat ze elke dag gebruiken.</p>
-      <ul><li>Concept en validatie met echte gebruikers</li><li>Ontwerp volgens de regels van Apple en Google</li><li>Bouw, testen en publicatie in de stores</li><li>Meten wat het doet</li></ul>
+      <ul><li>Concept getest met echte gebruikers</li><li>Ontwerp volgens de regels van Apple en Google</li><li>Bouw, testen en publicatie in de stores</li></ul>
       <a class="btn ghost" href="#contact">Vraag een voorstel aan</a>
     </div>
-    <div class="pack ongoing rv">
-      <div class="ph">Doorlopend</div>
-      <h3>Elke maand een stap verder</h3>
-      <div class="meta"><span>Per maand, opzegbaar</span><span class="price">Vanaf €750</span></div>
-      <p>Een vast aantal uren per maand. We maken samen een roadmap, jij bepaalt wat voorgaat, ik pak het op. Geen offertes per klusje.</p>
-      <ul><li>Vaste uren, vaste prijs</li><li>Gezamenlijke roadmap en prioriteiten</li><li>Onderhoud, verbeteringen en nieuwe functies</li><li>Voorrang in mijn planning</li></ul>
-      <a class="btn ghost" href="#contact">Vraag naar de opties</a>
-    </div>
   </div>
+  <p class="after-line rv">Live en dan doorgaan? Dat kan met een vast aantal uren per maand op een gezamenlijke roadmap, <b>vanaf €750 per maand</b>, opzegbaar. Jij bepaalt wat voorgaat, ik pak het op.</p>
 </section>
 
 <!-- CHECK -->
