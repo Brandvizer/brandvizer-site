@@ -232,7 +232,7 @@
   .opt{text-align:left;background:rgba(255,255,255,.06);border:1.5px solid rgba(255,255,255,.14);color:#fff;border-radius:14px;padding:16px 18px;font-size:var(--body);cursor:pointer;transition:background .2s,border-color .2s,transform .3s var(--ease)}
   .opt:hover{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.4);transform:translateY(-2px)}
   .opt.sel{background:var(--pink);border-color:var(--pink)}
-  .q-nav{display:flex;justify-content:space-between;align-items:center;margin-top:22px;font-size:var(--small);color:rgba(255,255,255,.55)}
+  .q-nav{display:flex;align-items:center;margin-top:20px;font-size:var(--small);color:rgba(255,255,255,.55);min-height:24px}
   .q-nav button{background:none;border:none;color:rgba(255,255,255,.7);cursor:pointer;padding:6px 0;text-decoration:underline;text-underline-offset:3px}
   .prog{height:4px;background:rgba(255,255,255,.12);border-radius:99px;margin-bottom:26px;overflow:hidden}
   .prog i{display:block;height:100%;background:var(--note);width:0;transition:width .5s var(--ease)}
@@ -357,7 +357,8 @@
   .contact .regio b{color:var(--ink2);font-weight:600}
   footer{padding:50px 0 110px;font-size:var(--small);color:var(--mute)}
   footer .row{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:26px}
-  footer a{color:var(--ink2);text-decoration:none;margin-right:18px}
+  footer .row>span:last-child{display:flex;flex-wrap:wrap;gap:8px 18px}
+  footer a{color:var(--ink2);text-decoration:none}
 
   /* Mobile sticky CTA */
   .mcta{position:fixed;left:14px;right:14px;bottom:14px;z-index:40;display:none;background:var(--pink);color:#fff;border-radius:999px;padding:16px 22px;font-family:var(--display);font-weight:600;font-size:17px;text-align:center;text-decoration:none;box-shadow:0 14px 34px rgba(255,61,127,.4)}
@@ -396,7 +397,12 @@
     .note{position:static!important;max-width:none;transform:none;border-radius:12px;font-size:var(--hand-m)}
     .mock{margin-bottom:10px}
     .mock-cap{margin-top:6px;text-align:left;padding:0}
-    .opts{grid-template-columns:1fr}
+    .opts{grid-template-columns:1fr;gap:8px}
+    .check{padding:26px 20px}
+    .check-body{background:none;border:none;border-radius:0;padding:0;margin-top:26px;min-height:0}
+    .opt{padding:15px 16px}
+    .q h3{margin-bottom:18px}
+    .done,.book{padding-left:0;padding-right:0}
     .res .rb{grid-template-columns:1fr}
     .book-grid{grid-template-columns:1fr}
     .mcta{display:block}
@@ -632,7 +638,7 @@
         </div>
       </div>
 
-      <div class="q-nav" id="qnav"><button type="button" id="qBack">Vorige vraag</button><span id="qCount"></span></div>
+      <div class="q-nav" id="qnav"><button type="button" id="qBack">Vorige vraag</button></div>
 
       <div class="res" id="res">
         <div class="step" style="font-family:var(--hand);font-size:var(--hand-m);color:var(--note);margin-bottom:10px">Mijn eerste inschatting</div>
@@ -995,8 +1001,8 @@
 
   /* Zelfcheck */
   var answers=[], cur=0, qs=document.querySelectorAll('.q'), total=qs.length;
-  var prog=document.getElementById('progFill'), qnav=document.getElementById('qnav'), qBack=document.getElementById('qBack'), qCount=document.getElementById('qCount');
-  function show(i){ cur=i; qs.forEach(function(q,j){ q.classList.toggle('on',j===i); }); prog.style.width=((i)/total*100)+'%'; qBack.style.visibility=i>0?'visible':'hidden'; qCount.textContent='Nog '+(total-i)+' '+(total-i===1?'vraag':'vragen'); }
+  var prog=document.getElementById('progFill'), qnav=document.getElementById('qnav'), qBack=document.getElementById('qBack');
+  function show(i){ cur=i; qs.forEach(function(q,j){ q.classList.toggle('on',j===i); }); prog.style.width=((i)/total*100)+'%'; qBack.style.visibility=i>0?'visible':'hidden'; }
   qs.forEach(function(q,i){ q.querySelectorAll('.opt').forEach(function(o){ o.addEventListener('click',function(){
     q.querySelectorAll('.opt').forEach(function(x){x.classList.remove('sel');}); o.classList.add('sel'); answers[i]=o.dataset.v;
     setTimeout(function(){ if(i<total-1) show(i+1); else result(); }, 260);

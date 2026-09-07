@@ -95,5 +95,6 @@ p{margin:0} a{color:inherit} img{max-width:100%;display:block}
 
 footer{padding:40px 0 60px;font-size:var(--small);color:var(--mute)}
 footer .row{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:26px}
-footer a{color:var(--ink2);text-decoration:none;margin-right:18px}
+footer .row>span:last-child{display:flex;flex-wrap:wrap;gap:8px 18px}
+footer a{color:var(--ink2);text-decoration:none}
 @media(prefers-reduced-motion:reduce){*{animation-duration:.001s!important;transition-duration:.001s!important}}
