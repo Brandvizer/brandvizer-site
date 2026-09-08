@@ -52,3 +52,37 @@
   .cs.flip .cs-thumbs{padding-left:var(--pad);padding-right:0;justify-content:flex-start}
   .cs-grid{grid-template-columns:1fr}
 }
+
+
+/* ---- Slider op de homepage ---- */
+.cs-ctrl{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-top:38px}
+.cs-tabs{display:flex;gap:8px;flex-wrap:wrap}
+.cs-tab{border:1.5px solid var(--line);background:var(--white);color:var(--ink2);border-radius:999px;padding:10px 18px;font-family:var(--display);font-weight:600;font-size:var(--small);cursor:pointer;transition:background .2s,color .2s,border-color .2s}
+.cs-tab:hover{border-color:var(--ink);color:var(--ink)}
+.cs-tab[aria-current="true"]{background:var(--ink);border-color:var(--ink);color:var(--white)}
+.cs-arrows{display:flex;gap:8px}
+.cs-arrow{width:44px;height:44px;border-radius:50%;border:1.5px solid var(--line);background:var(--white);color:var(--ink);cursor:pointer;display:grid;place-items:center;transition:border-color .2s,opacity .2s}
+.cs-arrow:hover:not(:disabled){border-color:var(--ink)}
+.cs-arrow:disabled{opacity:.3;cursor:default}
+.cs-rail{display:flex;gap:20px;overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;padding:22px var(--pad) 8px;scroll-padding-left:var(--pad);margin:0;scrollbar-width:none;-ms-overflow-style:none}
+.cs-rail::-webkit-scrollbar{display:none}
+.cs-rail:focus-visible{outline:3px solid var(--pink);outline-offset:-3px;border-radius:26px}
+.cs-rail .cs{flex:0 0 calc(100% - 52px);scroll-snap-align:start;scroll-snap-stop:always;display:grid;grid-template-columns:minmax(0,1.02fr) minmax(0,.98fr);column-gap:clamp(26px,3.4vw,54px);align-items:start;background:var(--white);border:1px solid var(--line);border-radius:26px;padding:clamp(22px,2.6vw,38px);margin:0}
+.cs-rail .cs.flip{grid-template-columns:minmax(0,1.02fr) minmax(0,.98fr)}
+.cs-rail .cs-media,.cs-rail .cs.flip .cs-media{grid-column:1;position:static;order:0}
+.cs-rail .cs-text,.cs-rail .cs.flip .cs-text{grid-column:2;padding:0}
+.cs-rail .cs-main,.cs-rail .cs.flip .cs-main{border-radius:18px;box-shadow:0 18px 44px rgba(15,27,45,.12)}
+.cs-rail .cs-thumbs,.cs-rail .cs.flip .cs-thumbs{padding:0;justify-content:flex-start}
+.cs-rail .cs h3{font-size:clamp(24px,2.6vw,34px)}
+.cs-prog{height:3px;background:var(--line);border-radius:99px;margin:18px var(--pad) 0;overflow:hidden}
+.cs-prog i{display:block;height:100%;width:33.33%;background:var(--pink);border-radius:99px;transition:transform .35s var(--ease)}
+.cs-hint{margin-top:14px;font-family:var(--hand);font-size:var(--hand-m);color:var(--mute)}
+@media(max-width:960px){
+  .cs-arrows{display:none}
+  .cs-rail{padding-top:16px}
+  .cs-rail .cs{flex:0 0 calc(100% - 34px);grid-template-columns:1fr;row-gap:22px;padding:18px}
+  .cs-rail .cs-media,.cs-rail .cs-text,.cs-rail .cs.flip .cs-media,.cs-rail .cs.flip .cs-text{grid-column:1}
+  .cs-rail .cs-main,.cs-rail .cs.flip .cs-main{margin:0;border-radius:14px}
+  .cs-tabs{width:100%}
+  .cs-tab{flex:1;text-align:center;padding:10px 12px}
+}
