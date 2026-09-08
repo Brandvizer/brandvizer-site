@@ -99,14 +99,33 @@ footer .row>span:last-child{display:flex;flex-wrap:wrap;gap:8px 18px}
 footer a{color:var(--ink2);text-decoration:none}
 @media(prefers-reduced-motion:reduce){*{animation-duration:.001s!important;transition-duration:.001s!important}}
 @media (prefers-color-scheme: dark){
-  :root{
-    --paper:#0C1626; --paper2:#152238; --grid:rgba(255,255,255,.05);
+:root:not([data-theme="light"]){--paper:#0C1626; --paper2:#152238; --grid:rgba(255,255,255,.05);
     --ink:#EDF1F5; --ink2:#B4BECC; --mute:#8A94A6; --line:rgba(255,255,255,.14);
     --pink:#FF5B92; --pink-soft:#3A1526; --green:#3FBF9A; --green-soft:#14332B;
     --note:#FFD84D; --note-ink:#2A2000; --white:#132038;
-    --inv-bg:#1B2A45; --inv-ink:#EDF1F5;
-  }
-  .mock,.pack,.pain,.why,.kcard,.aside-me,.aside-list,.csm,.contact,.cs{background:var(--white)}
-  .aside-card,.check,.pack.feat,.chip small{background:var(--inv-bg)}
-  img{filter:brightness(.94)}
+    --inv-bg:#1B2A45; --inv-ink:#EDF1F5;}
+:root:not([data-theme="light"]) .mock,.pack,.pain,.why,.kcard,.aside-me,.aside-list,.csm,.contact,.cs{background:var(--white)}
+:root:not([data-theme="light"]) .aside-card,.check,.pack.feat,.chip small{background:var(--inv-bg)}
+:root:not([data-theme="light"]) img{filter:brightness(.94)}
 }
+:root[data-theme="dark"]{--paper:#0C1626; --paper2:#152238; --grid:rgba(255,255,255,.05);
+    --ink:#EDF1F5; --ink2:#B4BECC; --mute:#8A94A6; --line:rgba(255,255,255,.14);
+    --pink:#FF5B92; --pink-soft:#3A1526; --green:#3FBF9A; --green-soft:#14332B;
+    --note:#FFD84D; --note-ink:#2A2000; --white:#132038;
+    --inv-bg:#1B2A45; --inv-ink:#EDF1F5;}
+:root[data-theme="dark"] .mock,.pack,.pain,.why,.kcard,.aside-me,.aside-list,.csm,.contact,.cs{background:var(--white)}
+:root[data-theme="dark"] .aside-card,.check,.pack.feat,.chip small{background:var(--inv-bg)}
+:root[data-theme="dark"] img{filter:brightness(.94)}
+
+
+.theme-btn{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;flex-shrink:0;border-radius:50%;border:1.5px solid var(--line);background:transparent;color:var(--ink2);cursor:pointer;transition:color .2s,border-color .2s,background .2s}
+.theme-btn:hover{color:var(--ink);border-color:var(--ink)}
+.theme-btn .ico{width:19px;height:19px}
+.theme-btn .sun{display:none}
+.theme-btn .moon{display:block}
+@media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]) .theme-btn .sun{display:block}
+    :root:not([data-theme="light"]) .theme-btn .moon{display:none}
+}
+  :root[data-theme="dark"] .theme-btn .sun{display:block}
+  :root[data-theme="dark"] .theme-btn .moon{display:none}
