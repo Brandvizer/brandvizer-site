@@ -24,7 +24,7 @@ p{margin:0} a{color:inherit} img{max-width:100%;display:block}
 .lead{font-size:var(--lead);color:var(--ink2);max-width:58ch;line-height:1.5}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:16px 26px;border-radius:999px;font-family:var(--display);font-weight:600;font-size:17px;text-decoration:none;border:2px solid var(--ink);background:var(--ink);color:var(--white);cursor:pointer;transition:transform .35s var(--ease),box-shadow .3s}
 .btn:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(15,27,45,.18)}
-.btn.pink{background:var(--pink);border-color:var(--pink)}
+.btn.pink{background:var(--pink);border-color:var(--pink);color:var(--pink-ink)}
 .btn.ghost{background:transparent;color:var(--ink)}
 .btn.sm{padding:11px 18px;font-size:var(--small)}
 
@@ -101,7 +101,8 @@ footer a{color:var(--ink2);text-decoration:none}
 @media (prefers-color-scheme: dark){
 :root:not([data-theme="light"]){--paper:#0C1626; --paper2:#152238; --grid:rgba(255,255,255,.05);
     --ink:#EDF1F5; --ink2:#B4BECC; --mute:#8A94A6; --line:rgba(255,255,255,.14);
-    --pink:#FF5B92; --pink-soft:#3A1526; --green:#3FBF9A; --green-soft:#14332B;
+    --pink:#FF5B92; --pink-soft:#3A1526; --pink-ink:#3D0518;
+--green:#3FBF9A; --green-soft:#14332B; --green-bright:#3FD9AC; --green-ink:#04291F;
     --note:#FFD84D; --note-ink:#2A2000; --white:#132038;
     --inv-bg:#1B2A45; --inv-ink:#EDF1F5;}
 :root:not([data-theme="light"]) .mock,.pack,.pain,.why,.kcard,.aside-me,.aside-list,.csm,.contact,.cs{background:var(--white)}
@@ -110,7 +111,8 @@ footer a{color:var(--ink2);text-decoration:none}
 }
 :root[data-theme="dark"]{--paper:#0C1626; --paper2:#152238; --grid:rgba(255,255,255,.05);
     --ink:#EDF1F5; --ink2:#B4BECC; --mute:#8A94A6; --line:rgba(255,255,255,.14);
-    --pink:#FF5B92; --pink-soft:#3A1526; --green:#3FBF9A; --green-soft:#14332B;
+    --pink:#FF5B92; --pink-soft:#3A1526; --pink-ink:#3D0518;
+--green:#3FBF9A; --green-soft:#14332B; --green-bright:#3FD9AC; --green-ink:#04291F;
     --note:#FFD84D; --note-ink:#2A2000; --white:#132038;
     --inv-bg:#1B2A45; --inv-ink:#EDF1F5;}
 :root[data-theme="dark"] .mock,.pack,.pain,.why,.kcard,.aside-me,.aside-list,.csm,.contact,.cs{background:var(--white)}
