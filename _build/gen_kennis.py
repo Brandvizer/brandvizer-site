@@ -118,7 +118,7 @@ ARTICLES=[
 <h2>En wanneer betaal je te weinig?</h2>
 <p>Ook dat bestaat. Een site van 1.200 euro die geen klanten oplevert is duurder dan een site van 5.000 euro die dat wel doet. Als je een bedrijf hebt waar een nieuwe klant honderden of duizenden euro's waard is, dan is besparen op het ding dat die klanten binnenhaalt een rare plek om te besparen.</p>
 
-<div class="callout green"><div class="k">Zo doe ik het</div><p>Een website bij mij begint <span class="mark">vanaf 3.950 euro</span> en staat in twee tot drie weken live. Ontwerp, bouw, teksten, vindbaarheid, meten en hosting zitten erin. Twijfel je of dat past? Begin met een <a href="/#pakketten">Kickstart</a>: in één week weet je precies wat je nodig hebt en wat het kost, voor 950 euro die verrekend wordt als je doorgaat.</p></div>
+<div class="callout green"><div class="k">Zo doe ik het</div><p>Bij mij kost een compacte site <span class="mark">2.950 euro</span> en een complete site van zeven pagina's inclusief teksten <span class="mark">4.950 euro</span>. Geen "vanaf": dat bedrag staat in de offerte. Wil je later meer pagina's of een tweede taal, dan staat daar ook een vaste prijs op. <a href="/#pakketten">Alle prijzen staan op de site</a>.</p></div>
 
 <h2>Wat ik zou doen als ik jou was</h2>
 <p>Vraag niet drie offertes voor "een website". Vraag drie mensen om in een halfuur te vertellen wat jouw klant straks beter kan, en hoe ze dat gaan aantonen. Degene die daar het scherpste antwoord op heeft, is degene die je wilt. De prijs is daarna een detail.</p>

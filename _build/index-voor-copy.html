@@ -198,15 +198,12 @@
   .step3 h3{font-size:var(--h4);margin:4px 0 10px}
   .step3 p{color:var(--ink2)}
   /* Packs */
-  .packs{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:34px}
-  .pricelist{margin-top:26px;background:var(--white);border:1px solid var(--line);border-radius:22px;padding:26px 30px}
-  .pl-head{font-family:var(--hand);font-size:var(--hand-l);color:var(--pink);line-height:1;margin-bottom:16px}
-  .pricelist ul{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:1fr 1fr;gap:2px 40px}
-  .pricelist li{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:11px 0;border-bottom:1px solid var(--line);font-size:var(--body)}
-  .pricelist li span{color:var(--ink2)}
-  .pricelist li b{font-family:var(--display);font-weight:600;white-space:nowrap}
-  .pack{background:var(--white);border:1px solid var(--line);border-radius:22px;padding:26px 24px;display:flex;flex-direction:column;position:relative;transition:transform .4s var(--ease),box-shadow .4s}
+  .packs{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:22px}
+  .pack{background:var(--white);border:1px solid var(--line);border-radius:24px;padding:32px 30px;display:flex;flex-direction:column;position:relative;transition:transform .4s var(--ease),box-shadow .4s}
   .pack:hover{transform:translateY(-4px);box-shadow:0 24px 60px rgba(15,27,45,.12)}
+  .kick-line{display:flex;gap:18px;align-items:center;margin-top:36px;background:var(--white);border:2px solid var(--ink);border-radius:18px;padding:18px 22px}
+  .kick-line .kick-badge{flex-shrink:0;font-family:var(--hand);font-weight:600;font-size:var(--hand-m);line-height:1;background:var(--note);color:var(--note-ink);padding:10px 14px;border-radius:12px;transform:rotate(-2deg)}
+  .kick-line div:last-child{color:var(--ink2)} .kick-line b{color:var(--ink);font-weight:600}
   .after-line{margin-top:26px;color:var(--ink2);max-width:70ch} .after-line b{color:var(--ink);font-weight:600}
   .pack.feat{background:var(--inv-bg);color:var(--inv-ink);border-color:var(--inv-bg)}
   .pack.feat .ph{color:var(--note)}
@@ -215,13 +212,13 @@
   .pack.feat .meta span.price{background:var(--note);color:var(--note-ink)}
   .pack.feat .btn{background:var(--pink);border-color:var(--pink)}
   .pack .ph{font-family:var(--hand);font-size:var(--hand-l);color:var(--pink)}
-  .pack h3{font-size:20px;line-height:1.25;margin:4px 0 12px}
+  .pack h3{font-size:var(--h4);margin:4px 0 12px}
   .pack .meta{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 16px}
   .pack .meta span{font-size:var(--small);font-weight:600;padding:6px 12px;border-radius:999px;background:var(--paper2);color:var(--ink2)}
   .pack .meta span.price{background:var(--note);color:var(--note-ink)}
   .pack p{color:var(--ink2)}
   .pack ul{list-style:none;padding:0;margin:18px 0 0;display:grid;gap:9px}
-  .pack li{display:flex;gap:10px;font-size:var(--small);align-items:flex-start}
+  .pack li{display:flex;gap:11px;font-size:var(--body);align-items:flex-start}
   .pack li::before{content:"";width:18px;height:18px;border-radius:50%;background:var(--green-soft);flex-shrink:0;margin-top:4px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23128C6E' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6L9 17l-5-5'/%3E%3C/svg%3E");background-size:11px;background-position:center;background-repeat:no-repeat}
   .pack.feat li::before{background-color:rgba(255,255,255,.15);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23FFE27A' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6L9 17l-5-5'/%3E%3C/svg%3E")}
   .pack .btn{margin-top:26px;width:100%}
@@ -368,10 +365,8 @@
     .mock-wrap{padding:26px 0 10px;max-width:520px}
     .why-grid{grid-template-columns:1fr 1fr}
     .steps3{grid-template-columns:1fr}
-    .packs{grid-template-columns:1fr 1fr}
-    .pricelist ul{grid-template-columns:1fr}
     .packs{grid-template-columns:1fr}
-    .pricelist{padding:20px 22px}
+    .kick-line{flex-direction:column;align-items:flex-start}
     .about{grid-template-columns:1fr}
     .hero .who img{width:40px;height:40px}
     .klist{grid-template-columns:1fr}
@@ -470,10 +465,10 @@
         <span class="line" data-hero>of app die <em>klanten&nbsp;oplevert.</em></span><br>
         <span class="line" data-hero>Niet alleen een&nbsp;<span class="ul-pink" id="ul1">mooie.<svg viewBox="0 0 200 12" preserveAspectRatio="none"><path d="M2 8 C 40 2, 80 10, 120 5 S 180 4, 198 7"/></svg></span></span>
       </h1>
-      <p class="lead" data-hero>Ik maakte apps voor de Belastingdienst en ABN AMRO, waar miljoenen mensen mee werken. Diezelfde blik zet ik op jouw website, voor een prijs die past bij een bedrijf van vijf tot vijftig mensen. Eén vast bedrag, in weken live, hosting geregeld.</p>
+      <p class="lead" data-hero>Voor ondernemers die het goed willen doen, zonder bureau eromheen. Ik ontwerp én bouw het zelf, met de ervaring van banken en overheid. Vaste prijs, in weken live, hosting geregeld.</p>
       <div class="actions" data-hero>
         <a class="btn pink" href="#check">Welk pakket past bij mij?</a>
-        <a class="btn ghost" href="#pakketten">Bekijk de prijzen</a>
+        <a class="btn ghost" href="#pakketten">Bekijk de pakketten</a>
       </div>
       <div class="actions" data-hero style="margin-top:14px">
         <span class="hint"><svg viewBox="0 0 40 22"><path d="M2 4 C 12 20, 26 20, 36 6 M30 6 l6 0 l0 6"/></svg> Vijf vragen, twee minuten, geen account</span>
@@ -516,10 +511,10 @@
     </div>
     <div>
       <div class="eyebrow rv">Over mij</div>
-      <h2 class="rv">Vijftien jaar schermen voor miljoenen Nederlanders. Nu voor bedrijven van vijf tot vijftig mensen.</h2>
-      <p class="rv">Ik maakte apps en websites voor de Belastingdienst, ABN AMRO, de Sociale Verzekeringsbank en Easyjobs. Eén onduidelijk scherm daar betekent de volgende ochtend duizenden telefoontjes. Dan leer je vanzelf om eerst te kijken waar mensen vastlopen, en pas daarna te bouwen.</p>
-      <p class="rv">Dat werk was altijd alleen betaalbaar voor grote organisaties. Met AI als gereedschap bouw ik in weken wat vroeger maanden kostte. Daarom kan het nu ook voor jouw bedrijf, zonder bureau ertussen.</p>
-      <p class="rv">Je appt de man die het bouwt, niet een accountmanager. En denk ik dat je iets beter niet kunt maken, dan zeg ik dat. Ook als het me de opdracht kost.</p>
+      <h2 class="rv">Vijftien jaar bij banken en overheid. Nu voor ondernemers die het goed willen doen.</h2>
+      <p class="rv">Ik heb apps en websites gemaakt voor de Belastingdienst, ABN AMRO, de Sociale Verzekeringsbank en Easyjobs. Plekken waar miljoenen mensen iets in één keer moeten snappen, en waar een foutje in een scherm meteen duizenden telefoontjes betekent. Daar leer je eerst begrijpen, dan bouwen.</p>
+      <p class="rv">Die manier van werken was altijd alleen betaalbaar voor grote organisaties. Met AI als gereedschap bouw ik nu zo snel dat het ook kan voor een bedrijf met vijf of vijftig mensen. Zonder bureau eromheen, met mij aan tafel.</p>
+      <p class="rv">Je werkt met mij, niet met een accountmanager. En als ik denk dat je iets niet moet bouwen, zeg ik dat. Ook als het me een opdracht kost.</p>
       <div class="facts rv">
         <div><strong>15+</strong><span>jaar product design</span></div>
         <div><strong>1</strong><span>aanspreekpunt, van eerste gesprek tot live</span></div>
@@ -534,23 +529,23 @@
 <section id="pijn" class="sec wrap">
   <div class="eyebrow rv">Herken je dit?</div>
   <h2 class="h2 rv">Je wilt iets nieuws. Maar <span class="mark" data-mark>wie moet je geloven?</span></h2>
-  <p class="lead rv" style="margin-top:22px">Vier zinnen die ik bijna elke week hoor. Onder elke zin staat wat er werkelijk aan de hand is, en wat ik eraan doe.</p>
+  <p class="lead rv" style="margin-top:22px">Dit zijn de zinnen die ik het vaakst hoor van ondernemers die een nieuwe website of app willen. Onder elke zin: wat er meestal echt speelt.</p>
   <div class="pains">
     <article class="pain rv">
       <q>Ik heb drie offertes. Eén van 4.000 euro en één van 25.000. Ik snap niet waar het verschil in zit.</q>
-      <div class="real"><span class="tag">Wat er echt speelt:</span><p>Je koopt iets wat je niet kunt beoordelen. De een zet een template onder je logo, de ander rekent zijn eigen proces door. Vraag wat je klant straks beter kan en hoe je dat gaat zien. Bij mij staat het bedrag in de offerte, niet "vanaf".</p></div>
+      <div class="real"><span class="tag">Wat er echt speelt:</span><p>Je kunt kwaliteit niet beoordelen, en dat is niet gek. De ene bouwt een template, de ander verkoopt zijn eigen proces. Niemand legt uit wat jouw klanten straks beter kunnen.</p></div>
     </article>
     <article class="pain rv">
       <q>Mijn site is uit 2018. Ik schaam me er een beetje voor, maar ik weet niet waar ik moet beginnen.</q>
-      <div class="real"><span class="tag">Wat er echt speelt:</span><p>Je hebt geen tijd om je hierin te verdiepen, en dat hoeft ook niet. Ik stel de vragen, ik schrijf de teksten, ik bouw en ik zet hem live. Jij keurt goed en levert je logo.</p></div>
+      <div class="real"><span class="tag">Wat er echt speelt:</span><p>Je bent geen websitebouwer, en dat hoeft ook niet. Je hebt iemand nodig die de goede vragen stelt en het daarna gewoon regelt. Van eerste gesprek tot live.</p></div>
     </article>
     <article class="pain rv">
       <q>Het vorige bureau leverde iets moois. Maar ik kan er zelf niks in aanpassen en ze reageren niet meer.</q>
-      <div class="real"><span class="tag">Wat er echt speelt:</span><p>Je bent afhankelijk gemaakt. Een goede site is van jou: teksten en foto's pas je zelf aan, voor de rest app je mij. Geen ticketsysteem, geen wachtrij, geen factuur voor elk klein dingetje.</p></div>
+      <div class="real"><span class="tag">Wat er echt speelt:</span><p>Je bent afhankelijk gemaakt. Een goede site is van jou: je kunt er zelf in werken, en de bouwer is bereikbaar als het nodig is. Geen ticketsysteem, gewoon een appje.</p></div>
     </article>
     <article class="pain rv">
       <q>Iedereen zegt dat je tegenwoordig zelf een site of app maakt met AI. Waarom zou ik dan nog iemand betalen?</q>
-      <div class="real"><span class="tag">Wat er echt speelt:</span><p>Je hebt binnen een uur een site staan. Alleen weet die tool niet wie jouw klanten zijn en waar ze afhaken. Ik gebruik dezelfde tools, met vijftien jaar ervaring in wat je ze moet laten doen. Dat scheelt jou maanden en een site die niets oplevert.</p></div>
+      <div class="real"><span class="tag">Wat er echt speelt:</span><p>Dat kan, en het wordt ook meteen zo'n site. AI is gereedschap. Het verschil zit in wie de vragen stelt vóór er gebouwd wordt: wie zijn je klanten en wat moeten ze kunnen? Dat gereedschap gebruik ik ook, alleen met vijftien jaar ervaring erachter.</p></div>
     </article>
   </div>
 
@@ -560,7 +555,7 @@
   <div class="wrap">
     <div class="eyebrow rv">Bewijs</div>
     <h2 class="h2 rv">Geen mooie plaatjes. Wel <span class="mark" data-mark>waarom het werkte.</span></h2>
-    <p class="lead rv" style="margin-top:22px">Grote namen, hetzelfde recept als voor jouw bedrijf: eerst uitzoeken waar mensen vastlopen, dan pas bouwen. Drie projecten helemaal uitgelegd, daaronder vier kort.</p>
+    <p class="lead rv" style="margin-top:22px">Dit zijn grote organisaties, maar het recept is voor jouw bedrijf hetzelfde: eerst begrijpen wat klanten nodig hebben, dan bouwen. Drie projecten helemaal uitgelegd, daaronder vier kort. Klik op de kleine beelden om meer te zien.</p>
     <div class="case-links rv">
       <a href="#case-svb">SVB, digitaal levensbewijs</a>
       <a href="#case-abnamro">ABN AMRO, open domein</a>
@@ -733,77 +728,62 @@
 <section id="aanpak" class="sec wrap">
   <div class="eyebrow rv">Zo werk ik</div>
   <h2 class="h2 rv">Eerst begrijpen. Dan bouwen. <span class="mark" data-mark>Dan meten.</span></h2>
-  <p class="lead rv" style="margin-top:22px">Drie stappen, altijd in deze volgorde. Je weet vooraf wat het kost en wanneer het klaar is, en je levert zelf bijna niets aan.</p>
+  <p class="lead rv" style="margin-top:22px">Drie stappen, altijd in deze volgorde. Je begint klein en met een vaste prijs. Doorgaan beslis je pas als je hebt gezien wat je krijgt.</p>
   <div class="why-me">
     <div class="why-head rv"><div class="eyebrow">Wat je van mij krijgt</div><h3>Zes redenen om het met mij te doen.</h3></div>
     <div class="why-grid">
-      <div class="why rv"><h4>Eén persoon, van eerste gesprek tot live</h4><p>Geen overdracht tussen designer en bouwer, geen accountmanager die het doorgeeft. Je appt de man die het maakt.</p></div>
-      <div class="why rv"><h4>Eerst begrijpen, dan bouwen</h4><p>Ik kijk eerst wie je klanten zijn en waar ze afhaken. Sla je dat over, dan bouw je iets moois waar niemand op klikt.</p></div>
-      <div class="why rv"><h4>Je klanten snappen het in één keer</h4><p>Vijftien jaar schermen gemaakt voor miljoenen Nederlanders. Wat daar werkt, werkt ook voor een installatiebedrijf of een bakkerij.</p></div>
-      <div class="why rv"><h4>Vaste prijs, vaste doorlooptijd</h4><p>Het bedrag staat in de offerte, niet "vanaf". Wil je meer, dan kies je dat zelf uit een lijst met vaste prijzen.</p></div>
-      <div class="why rv"><h4>Je ziet wat het doet</h4><p>Een maand na livegang zit je met de cijfers voor je: bezoekers, aanvragen, bestellingen. Geen gevoel, geen aannames.</p></div>
-      <div class="why rv"><h4>Alles geregeld</h4><p>Hosting, domein, updates en beveiliging lopen via mij en mijn vaste partner. Jij krijgt één factuur en verder geen gedoe.</p></div>
+      <div class="why rv"><h4>Eén persoon, van eerste gesprek tot live</h4><p>Geen overdracht tussen designer en bouwer, geen accountmanager. Je praat met degene die het maakt.</p></div>
+      <div class="why rv"><h4>Eerst begrijpen, dan bouwen</h4><p>Voor ik iets ontwerp kijk ik wie je klanten zijn en wat ze moeten kunnen. Dat is het verschil tussen mooi en werkend.</p></div>
+      <div class="why rv"><h4>Je klanten snappen het in één keer</h4><p>Vijftien jaar maakte ik apps waar miljoenen Nederlanders mee moesten werken, van belastingaangifte tot bankieren. Wie iets meteen snapt, komt terug.</p></div>
+      <div class="why rv"><h4>Vaste prijs, vaste doorlooptijd</h4><p>Je weet vooraf wat het kost en wanneer het klaar is. Geen uurtje factuurtje, geen verrassingen.</p></div>
+      <div class="why rv"><h4>Meetbaar</h4><p>Na livegang laat ik zien wat het doet: bezoekers, aanvragen, bestellingen. Geen gevoel, maar cijfers.</p></div>
+      <div class="why rv"><h4>Alles geregeld</h4><p>Hosting, domein en onderhoud regel ik via mijn vaste partner. Jij hoeft nergens over na te denken.</p></div>
     </div>
   </div>
   <h3 class="rv steps-head">En zo gaat het in de praktijk.</h3>
   <div class="steps3">
-    <div class="step3 rv"><div class="ph">Stap 1</div><h3>Kennismaken, 30 minuten</h3><p>Je vertelt wat je wilt en wie je klanten zijn. Ik zeg eerlijk wat het kost en of het slim is. Binnen twee werkdagen heb je een voorstel met één vast bedrag en een datum.</p></div>
-    <div class="step3 rv"><div class="ph">Stap 2</div><h3>Bouwen</h3><p>Ik ontwerp, schrijf en bouw. Elke week zie je waar we staan en stuur je bij. Teksten, vindbaarheid en hosting zitten erin, jij levert alleen je logo en je goedkeuring.</p></div>
-    <div class="step3 rv"><div class="ph">Stap 3</div><h3>Live en meten</h3><p>Ik zet hem live en regel hosting en domein. Na een maand kijken we samen naar de cijfers: wat levert het op, en wat verbeteren we als eerste.</p></div>
+    <div class="step3 rv"><div class="ph">Stap 1</div><h3>Kickstart</h3><p>In één week weten we wat je nodig hebt, wat het kost en hoe het eruit gaat zien. Je krijgt een klikbaar prototype en een vaste prijs voor de bouw.</p></div>
+    <div class="step3 rv"><div class="ph">Stap 2</div><h3>Bouwen</h3><p>Ik ontwerp en bouw, in korte rondes. Je kijkt elke week mee en stuurt bij. Teksten, vindbaarheid en hosting zitten erin. Dan gaat het live.</p></div>
+    <div class="step3 rv"><div class="ph">Stap 3</div><h3>Meten en verbeteren</h3><p>Na livegang kijken we wat het doet. Wil je blijven verbeteren, dan doen we dat met een vast aantal uren per maand op een gezamenlijke roadmap.</p></div>
   </div>
 </section>
 
 
 <!-- PAKKETTEN -->
 <section id="pakketten" class="sec wrap">
-  <div class="eyebrow rv">Prijzen</div>
-  <h2 class="h2 rv">Wat het kost. <span class="mark" data-mark>Zonder "vanaf".</span></h2>
-  <p class="lead rv" style="margin-top:22px">Alle bedragen zijn exclusief btw en staan vast voordat we beginnen. Wil je meer dan het pakket, dan kies je dat zelf uit de lijst eronder. <a href="#check">Twijfel je welke past?</a></p>
+  <div class="eyebrow rv">Pakketten</div>
+  <h2 class="h2 rv">Drie smaken. <span class="mark" data-mark>Vaste prijzen.</span></h2>
+  <p class="lead rv" style="margin-top:22px">Vanaf-prijzen, exclusief btw. Twijfel je welke past? <a href="#check">Doe de check</a>, dan weet je het in twee minuten.</p>
+  <div class="kick-line rv">
+    <div class="kick-badge">Stap 1, altijd</div>
+    <div><b>Elk pakket begint met een Kickstart.</b> Eén week, €950. Je krijgt een klikbaar prototype en een vaste prijs voor de bouw. Ga je door, dan wordt de €950 verrekend. Ga je niet door, dan heb je een plan waar je mee verder kunt.</div>
+  </div>
   <div class="packs">
     <div class="pack rv">
-      <div class="ph">Compact</div>
-      <h3>Eén sterke pagina, of home plus drie</h3>
-      <div class="meta"><span>2 weken</span><span class="price">€2.950</span></div>
-      <ul><li>Drie templates</li><li>Jij levert de teksten, ik redigeer</li><li>Vindbaar in Google, meten ingericht</li></ul>
-      <a class="btn ghost" href="#contact">Vraag een voorstel</a>
+      <div class="ph">Website</div>
+      <h3>Gevonden worden en aanvragen krijgen</h3>
+      <div class="meta"><span>2 tot 3 weken</span><span class="price">Vanaf €3.950</span></div>
+      <ul><li>Ontwerp, bouw en teksten die verkopen</li><li>Vindbaar in Google, snel, op elk scherm</li><li>Hosting geregeld, zelf aan te passen</li></ul>
+      <a class="btn ghost" href="#contact">Vraag een voorstel aan</a>
     </div>
     <div class="pack feat rv">
-      <div class="ph">Compleet</div>
-      <h3>Home plus zes pagina's, teksten inbegrepen</h3>
-      <div class="meta"><span>3 weken</span><span class="price">€4.950</span></div>
-      <ul><li>Vijf templates</li><li>Ik schrijf je teksten</li><li>Vindbaar, snel, meten ingericht</li></ul>
-      <a class="btn" href="#contact">Vraag een voorstel</a>
-    </div>
-    <div class="pack rv">
-      <div class="ph">Webshop of portaal</div>
+      <div class="ph">Webshop of webapp</div>
       <h3>Klanten laten bestellen, boeken of inloggen</h3>
-      <div class="meta"><span>5 weken</span><span class="price">€8.500</span></div>
-      <ul><li>Onderzoek en prototype vooraf</li><li>Koppeling met wat je al gebruikt</li><li>Beheer en hosting geregeld</li></ul>
-      <a class="btn ghost" href="#contact">Vraag een voorstel</a>
+      <div class="meta"><span>4 tot 6 weken</span><span class="price">Vanaf €7.500</span></div>
+      <ul><li>Onderzoek en prototype getest vóór de bouw</li><li>Ontwerp, bouw en koppelingen met wat je al gebruikt</li><li>Hosting en beheer geregeld</li></ul>
+      <a class="btn" href="#contact">Vraag een voorstel aan</a>
     </div>
     <div class="pack rv">
       <div class="ph">App</div>
       <h3>iOS en Android, van idee tot in de store</h3>
-      <div class="meta"><span>6 tot 10 weken</span><span class="price">€12.500</span></div>
-      <ul><li>Getest met echte gebruikers</li><li>Volgens de regels van Apple en Google</li><li>Bouw, test en publicatie</li></ul>
-      <a class="btn ghost" href="#contact">Vraag een voorstel</a>
+      <div class="meta"><span>6 tot 10 weken</span><span class="price">Vanaf €12.500</span></div>
+      <ul><li>Concept getest met echte gebruikers</li><li>Ontwerp volgens de regels van Apple en Google</li><li>Bouw, testen en publicatie in de stores</li></ul>
+      <a class="btn ghost" href="#contact">Vraag een voorstel aan</a>
     </div>
   </div>
-
-  <div class="pricelist rv">
-    <div class="pl-head">Wil je meer? Dat heeft ook een vaste prijs.</div>
-    <ul>
-      <li><span>Extra pagina op een bestaand template</span><b>€175</b></li>
-      <li><span>Extra template</span><b>€450</b></li>
-      <li><span>Teksten laten schrijven</span><b>€150 per pagina</b></li>
-      <li><span>Tweede taal</span><b>€900</b></li>
-      <li><span>Koppeling met je boekhouding, kassa of CRM</span><b>vanaf €750</b></li>
-      <li><span>Hosting, updates en kleine wijzigingen</span><b>€95 per maand</b></li>
-      <li><span>Elke maand verbeteren op een gezamenlijke roadmap</span><b>€750 per maand</b></li>
-    </ul>
-  </div>
-  <p class="after-line rv"><b>Webshop, portaal of app?</b> Daar beginnen we altijd met een Kickstart van €950: één week onderzoek en een klikbaar prototype dat je aan je klanten kunt laten zien. Ga je door, dan gaat dat bedrag van de prijs af. Bij een website is een gesprek van 30 minuten genoeg.</p>
+  <p class="after-line rv">Live en dan doorgaan? Dat kan met een vast aantal uren per maand op een gezamenlijke roadmap, <b>vanaf €750 per maand</b>, opzegbaar. Jij bepaalt wat voorgaat, ik pak het op.</p>
 </section>
+
 
 <!-- CHECK -->
 <section id="check" class="sec wrap">
@@ -858,9 +838,9 @@
         <div class="step">Vraag 5 van 5</div>
         <h3>Waar denk je aan qua budget?</h3>
         <div class="opts">
-          <button class="opt" data-v="b1">Tot €3.000</button>
-          <button class="opt" data-v="b2">€3.000 tot €6.000</button>
-          <button class="opt" data-v="b3">€6.000 tot €15.000</button>
+          <button class="opt" data-v="b1">Tot €5.000</button>
+          <button class="opt" data-v="b2">€5.000 tot €10.000</button>
+          <button class="opt" data-v="b3">€10.000 tot €25.000</button>
           <button class="opt" data-v="b0">Geen idee, daar wil ik juist over praten</button>
         </div>
       </div>
@@ -941,7 +921,7 @@
     <div class="sticky-note">Geen sales. Gewoon een gesprek.</div>
     <div>
       <h2>Vertel me waar het <em>wringt.</em></h2>
-      <p class="lead">Dertig minuten, online of bij jou aan tafel. Je krijgt een eerlijk advies en binnen twee werkdagen een voorstel met één vast bedrag en een opleverdatum. Ook als mijn advies is: doe het nu even niet.</p>
+      <p class="lead">Dertig minuten, online of bij jou aan tafel. Vertel wat je wilt maken en waar je tegenaan loopt. Je gaat sowieso weg met een eerlijk advies, ook als dat is: doe het (nog) niet.</p>
       <p class="regio">Ik werk vanuit Vaassen en kom graag langs in <b>Apeldoorn, Zwolle, Deventer</b>, Epe, Heerde, Hattem, Twello, Raalte en alles wat daartussen ligt. Verder weg? Dan doen we het online, dat werkt net zo goed.</p>
     </div>
     <div class="ways">
@@ -1096,37 +1076,39 @@
   show(0);
 
   var L={website:'een website',webapp:'een webshop of webapp',app:'een app',weetniet:'iets nieuws'};
-  var PK={website:{n:'Compleet',p:'€4.950',t:'3 weken'},webapp:{n:'Webshop of portaal',p:'€8.500',t:'5 weken'},app:{n:'App',p:'€12.500',t:'6 tot 10 weken'}};
-  var COMPACT={n:'Compact',p:'€2.950',t:'2 weken'};
-  var FLOOR={website:2950,webapp:8500,app:12500}, BUD={b1:3000,b2:6000,b3:15000,b0:0};
+  var PK={website:{n:'Website',p:'vanaf €3.950',t:'2 tot 3 weken'},webapp:{n:'Webshop of webapp',p:'vanaf €7.500',t:'4 tot 6 weken'},app:{n:'App',p:'vanaf €12.500',t:'6 tot 10 weken'}};
+  var FLOOR={website:3950,webapp:7500,app:12500}, BUD={b1:5000,b2:10000,b3:25000,b0:0};
   function result(){
     var a=answers, what=L[a[0]]||'iets nieuws', pk=PK[a[0]], bud=BUD[a[4]];
     var diag='', ex='', start=[], blocks=[];
-    if(a[0]==='website' && bud>0 && bud<=3000) pk=COMPACT;
     if(a[0]==='weetniet'){
-      diag='Je weet nog niet precies wat je wilt. <em>Begin dan met een gesprek, niet met een offerte.</em>';
-      ex='In 30 minuten weet ik genoeg om je te zeggen wat je nodig hebt en wat het kost. Vaak is het minder dan mensen denken. Binnen twee werkdagen krijg je een voorstel met één vast bedrag en een opleverdatum.';
-      start=['Gesprek van 30 minuten, gratis','Daarna een voorstel met een vast bedrag'];
+      diag='Je weet nog niet precies wat je wilt. <em>Dan is de Kickstart precies je eerste stap.</em>';
+      ex='In één week zoeken we uit wat je klanten nodig hebben, wat dat kost en hoe het eruit gaat zien. Je krijgt een klikbaar prototype en een vaste prijs. Pas daarna beslis je of je bouwt, en de €950 wordt dan verrekend.';
+      start=['Kickstart (1 week, €950)','Daarna een vaste prijs voor het pakket dat blijkt te passen'];
     } else if(bud>0 && bud<FLOOR[a[0]]){
-      diag='Je wilt '+what+'. <em>Eerlijk: dat past nog niet in dit budget.</em>';
-      ex=pk.n+' kost '+pk.p+'. Voor minder een uitgeklede versie laten maken raad ik af, dan betaal je twee keer. Wat wel kan: we knippen het op en beginnen met het stuk dat het meeste oplevert.';
-      start=['Gesprek van 30 minuten over wat er wel kan','Een eerste versie die al klanten oplevert'];
+      diag='Je wilt '+what+'. <em>Eerlijk: dat past nog niet in je budget.</em>';
+      ex='Het pakket '+pk.n+' begint '+pk.p+'. Ik zou niet aanraden om voor minder een uitgeklede versie te laten maken, dan koop je twee keer. Wat wél kan: een Kickstart. Dan weet je precies wat je nodig hebt, wat het kost en of er een slimme kleinere eerste stap is.';
+      start=['Kickstart (1 week, €950), verrekend als je doorgaat','Samen bepalen wat de kleinste versie is die al klanten oplevert'];
     } else {
-      diag='Je wilt '+what+'. <em>Dat is het pakket '+pk.n+', '+pk.p+'.</em>';
-      ex=pk.n+' kost '+pk.p+' exclusief btw en staat in '+pk.t+' live. Dat bedrag is het bedrag: wil je later meer pagina\'s of een tweede taal, dan kies je dat zelf uit de prijslijst.';
-      start=['Gesprek van 30 minuten','Voorstel met vaste prijs binnen twee werkdagen','Pakket '+pk.n+', '+pk.p+', '+pk.t+' tot live'];
-      if(a[0]!=='website') start.splice(2,0,'Kickstart van €950 vooraf, verrekend als je doorgaat');
-      if(a[3]==='nu' && a[0]==='app') ex+=' Eén ding vooraf: een app in de stores krijgen kost minimaal zes weken. Sneller kan niet zonder in te leveren.';
-      if(a[3]==='nu' && a[0]==='website') ex+=' Snel live? Als jij vlot reageert op wat ik voorleg, staat een website binnen twee tot drie weken.';
+      diag='Je wilt '+what+'. <em>Dat is het pakket '+pk.n+'.</em>';
+      ex=pk.n+' begint '+pk.p+' en duurt '+pk.t+'. We starten met een Kickstart, dan weet je binnen een week precies wat het wordt en wat het kost. Daarna bouw ik, jij kijkt elke week mee.';
+      start=['Kickstart (1 week, €950), verrekend in het pakket','Pakket '+pk.n+', '+pk.p+', '+pk.t+' tot live','Hosting en domein regel ik'];
+      if(a[3]==='nu' && a[0]==='app') ex+=' Eén ding vooraf: een app in de stores krijgen kost minimaal zes weken, sneller kan niet zonder in te leveren op kwaliteit.';
+      if(a[3]==='nu' && a[0]==='website') ex+=' Snel live wil je? Een website kan binnen drie weken staan als jij snel schakelt met teksten en beelden.';
     }
-    if(a[1]==='bureau') ex+=' Je huidige site neem ik over, inclusief domein en hosting. Je hoeft je oude bureau niets uit te leggen.';
-    if(a[1]==='zelf') ex+=' Wat je zelf bouwde is niet weggegooid: het laat me precies zien wat jij belangrijk vindt.';
-    if(a[2]==='aanvragen') blocks=['Aanvragen per week','Hoeveel bezoekers een aanvraag doen','Waar mensen afhaken'];
+    if(a[1]==='bureau') ex+=' Je huidige site of app neem ik gewoon over, inclusief domein en hosting. Je hoeft je oude bureau niets uit te leggen.';
+    if(a[1]==='zelf') ex+=' Wat je zelf gebouwd hebt is niet weggegooid: het vertelt me precies wat je belangrijk vindt.';
+    if(a[2]==='aanvragen') blocks=['Aantal aanvragen per week','Hoeveel bezoekers een aanvraag doen','Waar mensen afhaken'];
     else if(a[2]==='verkopen') blocks=['Bestellingen of boekingen per week','Hoeveel bezoekers afrekenen','Gemiddelde orderwaarde'];
-    else if(a[2]==='handwerk') blocks=['Telefoontjes en mailtjes per week, voor en na','Hoeveel klanten het zelf regelen','Uren die jij bespaart'];
-    else blocks=['Hoe lang mensen blijven','Hoeveel er terugkomen','Wat klanten zeggen als je het vraagt'];
-    var lab={0:{website:'Website',webapp:'Webshop, boekingssysteem of portaal',app:'App',weetniet:'Weet ik nog niet'},1:{niets:'Nog niets',oud:'Verouderde site of app',zelf:'Zelfgebouwd',bureau:'Van een bureau, niet blij mee'},2:{aanvragen:'Meer aanvragen',verkopen:'Online verkopen of boeken',handwerk:'Minder handwerk',uitstraling:'Uitstraling die klopt'},3:{nu:'Zo snel mogelijk','3mnd':'Binnen drie maanden',jaar:'Dit jaar',geen:'Geen haast'},4:{b1:'Tot €3.000',b2:'€3.000 tot €6.000',b3:'€6.000 tot €15.000',b0:'Geen idee'}};
-    window.__check={summary:'- Wat ik wil: '+lab[0][a[0]]+'\n- Wat ik nu heb: '+lab[1][a[1]]+'\n- Wat het moet opleveren: '+lab[2][a[2]]+'\n- Wanneer: '+lab[3][a[3]]+'\n- Budget: '+lab[4][a[4]], diag:diag.replace(/<[^>]+>/g,''), pk:(a[0]==='weetniet'?'Nog onbekend':(pk?pk.n+' ('+pk.p+')':''))};
+    else if(a[2]==='handwerk') blocks=['Telefoontjes en mailtjes per week, voor en na','Hoeveel klanten het zelf regelen','Tijd die jij bespaart'];
+    else blocks=['Hoe lang mensen blijven','Hoeveel terugkomen','Wat klanten zeggen als je het ze vraagt'];
+    var lab={0:{website:'Website',webapp:'Webshop, boekingssysteem of portaal',app:'App',weetniet:'Weet ik nog niet'},1:{niets:'Nog niets',oud:'Verouderde site of app',zelf:'Zelfgebouwd',bureau:'Van een bureau, niet blij mee'},2:{aanvragen:'Meer aanvragen',verkopen:'Online verkopen of boeken',handwerk:'Minder handwerk',uitstraling:'Uitstraling die klopt'},3:{nu:'Zo snel mogelijk','3mnd':'Binnen drie maanden',jaar:'Dit jaar',geen:'Geen haast'},4:{b1:'Tot €5.000',b2:'€5.000 tot €10.000',b3:'€10.000 tot €25.000',b0:'Geen idee'}};
+    document.getElementById('rDiag').innerHTML=diag;
+    document.getElementById('rEx').textContent=ex;
+    document.getElementById('rStart').innerHTML=start.map(function(s){return '<li>'+s+'</li>';}).join('');
+    document.getElementById('rBlocks').innerHTML=blocks.map(function(s){return '<li>'+s+'</li>';}).join('');
+    var lab={0:{webshop:'Webshop',app:'App',portaal:'Klantportaal of software',idee:'Nog een idee'},1:{afhaken:'Mensen haken af',gebruik:'Bijna niemand gebruikt het',service:'Klantenservice vangt op wat het product moet doen',onbekend:'Weet niet waar het misgaat'},2:{niet:'Meten we niet',ga:'Statistieken, kijken zelden',dash:'Dashboard',klanten:'Praten met klanten'},3:{bureau:'Bureau',freelancer:'Freelancer',team:'Eigen team',niemand:'Nog niemand'},4:{omzet:'Meer omzet uit bestaande bezoekers',minder:'Minder vragen bij service',live:'Iets nieuws live',grip:'Weten waar ik sta'}};
+    window.__check={summary:'- Wat ik wil: '+lab[0][a[0]]+'\n- Wat ik nu heb: '+lab[1][a[1]]+'\n- Wat het moet opleveren: '+lab[2][a[2]]+'\n- Wanneer: '+lab[3][a[3]]+'\n- Budget: '+lab[4][a[4]], diag:diag.replace(/<[^>]+>/g,''), pk:(a[0]==='weetniet'?'Kickstart':(pk?pk.n:''))};
     qs.forEach(function(q){q.classList.remove('on');}); qnav.style.display='none'; prog.style.width='100%';
     document.getElementById('res').classList.add('on');
     document.getElementById('checkBody').scrollIntoView({behavior:reduce?'auto':'smooth',block:'nearest'});
