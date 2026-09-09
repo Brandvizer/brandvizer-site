@@ -160,6 +160,10 @@
     else blocks=['Hoe lang mensen blijven','Hoeveel er terugkomen','Wat klanten zeggen als je het vraagt'];
     var lab={0:{website:'Website',webapp:'Webshop, boekingssysteem of portaal',app:'App',weetniet:'Weet ik nog niet'},1:{niets:'Nog niets',oud:'Verouderde site of app',zelf:'Zelfgebouwd',bureau:'Van een bureau, niet blij mee'},2:{aanvragen:'Meer aanvragen',verkopen:'Online verkopen of boeken',handwerk:'Minder handwerk',uitstraling:'Uitstraling die klopt'},3:{nu:'Zo snel mogelijk','3mnd':'Binnen drie maanden',jaar:'Dit jaar',geen:'Geen haast'},4:{b1:'Tot €3.000',b2:'€3.000 tot €6.000',b3:'€6.000 tot €15.000',b0:'Geen idee'}};
     window.__check={summary:'- Wat ik wil: '+lab[0][a[0]]+'\n- Wat ik nu heb: '+lab[1][a[1]]+'\n- Wat het moet opleveren: '+lab[2][a[2]]+'\n- Wanneer: '+lab[3][a[3]]+'\n- Budget: '+lab[4][a[4]], diag:diag.replace(/<[^>]+>/g,''), pk:(a[0]==='weetniet'?'Nog onbekend':(pk?pk.n+' ('+pk.p+')':''))};
+    document.getElementById('rDiag').innerHTML=diag;
+    document.getElementById('rEx').textContent=ex;
+    function vul(id,items){ var ul=document.getElementById(id); ul.innerHTML=''; items.forEach(function(t){ var li=document.createElement('li'); li.textContent=t; ul.appendChild(li); }); }
+    vul('rStart',start); vul('rBlocks',blocks);
     qs.forEach(function(q){q.classList.remove('on');}); qnav.style.display='none'; prog.style.width='100%';
     document.getElementById('res').classList.add('on');
     document.getElementById('checkBody').scrollIntoView({behavior:reduce?'auto':'smooth',block:'nearest'});
