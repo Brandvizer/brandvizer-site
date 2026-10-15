@@ -129,9 +129,19 @@
   show(0);
 
   var L={website:'een website',webapp:'een webshop of webapp',app:'een app',weetniet:'iets nieuws'};
-  var PK={website:{n:'Compleet',p:'€4.950',t:'3 weken'},webapp:{n:'Webshop of portaal',p:'€8.500',t:'5 weken'},app:{n:'App',p:'€12.500',t:'6 tot 10 weken'}};
-  var COMPACT={n:'Compact',p:'€2.950',t:'2 weken'};
-  var FLOOR={website:2950,webapp:8500,app:12500}, BUD={b1:3000,b2:6000,b3:15000,b0:0};
+  var PK={website:{n:'Compleet',p:'€4.450',t:'3 weken'},webapp:{n:'Webshop of portaal',p:'€8.950',t:'5 weken'},app:{n:'App',p:'€13.950',t:'6 tot 10 weken'}};
+  var COMPACT={n:'Compact',p:'€2.450',t:'2 weken'}, KICK='€950';
+  var FLOOR={website:2450,webapp:8950,app:13950}, BUD={b1:3000,b2:6000,b3:15000,b0:0};
+  // Prijzen uit het voorstelplatform (één bron). Zonder verbinding gelden de bedragen hierboven.
+  function prijzenBijwerken(j){
+    var e=function(n){ return '€'+Number(n).toLocaleString('nl-NL'); }, pk=j.pakketten||{};
+    var map={website:'compleet',webapp:'webshop',app:'app'};
+    Object.keys(map).forEach(function(k){ var p=pk[map[k]]; if(p){ PK[k]={n:p.naam,p:e(p.prijs),t:p.doorlooptijd}; FLOOR[k]=p.prijs; } });
+    if(j.kickstart) KICK=e(j.kickstart.prijs);
+    if(pk.compact){ COMPACT={n:pk.compact.naam,p:e(pk.compact.prijs),t:pk.compact.doorlooptijd}; FLOOR.website=pk.compact.prijs; }
+  }
+  if(window.__prijzen) prijzenBijwerken(window.__prijzen);
+  document.addEventListener('prijzen',function(ev){ prijzenBijwerken(ev.detail); });
   function result(){
     var a=answers, what=L[a[0]]||'iets nieuws', pk=PK[a[0]], bud=BUD[a[4]];
     var diag='', ex='', start=[], blocks=[];
@@ -148,7 +158,7 @@
       diag='Je wilt '+what+'. <em>Dat is het pakket '+pk.n+', '+pk.p+'.</em>';
       ex=pk.n+' kost '+pk.p+' exclusief btw en staat in '+pk.t+' live. Dat bedrag is het bedrag: wil je later meer pagina\'s of een tweede taal, dan kies je dat zelf uit de prijslijst.';
       start=['Gesprek van 30 minuten','Voorstel met vaste prijs binnen twee werkdagen','Pakket '+pk.n+', '+pk.p+', '+pk.t+' tot live'];
-      if(a[0]!=='website') start.splice(2,0,'Kickstart van €950 vooraf, verrekend als je doorgaat');
+      if(a[0]!=='website') start.splice(2,0,'Kickstart van '+KICK+' vooraf, verrekend als je doorgaat');
       if(a[3]==='nu' && a[0]==='app') ex+=' Eén ding vooraf: een app in de stores krijgen kost minimaal zes weken. Sneller kan niet zonder in te leveren.';
       if(a[3]==='nu' && a[0]==='website') ex+=' Snel live? Als jij vlot reageert op wat ik voorleg, staat een website binnen twee tot drie weken.';
     }
@@ -169,4 +179,23 @@
     document.getElementById('checkBody').scrollIntoView({behavior:reduce?'auto':'smooth',block:'nearest'});
   }
   })();
+})();
+
+// Prijzen live uit het voorstelplatform, zodat site, check en voorstellen altijd dezelfde bedragen tonen.
+(function(){
+  var URL_PRIJZEN='https://brandvizer-voorstel.rudolf-23d.workers.dev/api/prijzen';
+  if(!window.fetch) return;
+  fetch(URL_PRIJZEN).then(function(r){ return r.ok ? r.json() : null; }).then(function(j){
+    if(!j || !j.pakketten) return;
+    window.__prijzen=j;
+    var e=function(n){ return '\u20ac'+Number(n).toLocaleString('nl-NL'); };
+    document.querySelectorAll('[data-prijs]').forEach(function(el){ var p=j.pakketten[el.getAttribute('data-prijs')]; if(p) el.textContent=e(p.prijs); });
+    document.querySelectorAll('[data-meerwerk]').forEach(function(el){
+      var m=(j.meerwerk||[]).filter(function(x){ return x.id===el.getAttribute('data-meerwerk'); })[0];
+      if(m) el.textContent=(m.vanaf?'vanaf ':'')+e(m.prijs)+(m.eenheid?' '+m.eenheid:'');
+    });
+    document.querySelectorAll('[data-onderhoud]').forEach(function(el){ var o=(j.onderhoud||{})[el.getAttribute('data-onderhoud')]; if(o) el.textContent=e(o.prijs)+' per maand'; });
+    document.querySelectorAll('[data-kickstart]').forEach(function(el){ if(j.kickstart) el.textContent=e(j.kickstart.prijs); });
+    try { document.dispatchEvent(new CustomEvent('prijzen',{detail:j})); } catch(err){}
+  }).catch(function(){});
 })();
