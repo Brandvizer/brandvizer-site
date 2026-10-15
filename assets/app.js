@@ -92,6 +92,7 @@
   document.getElementById('rReset').addEventListener('click',function(){ answers=[]; document.querySelectorAll('.opt').forEach(function(x){x.classList.remove('sel');}); document.getElementById('res').classList.remove('on'); document.getElementById('book').classList.remove('on'); document.getElementById('done').classList.remove('on'); qnav.style.display='flex'; show(0); });
 
   /* ---- Afspraak plannen ---- */
+  var URL_AANVRAAG='https://brandvizer-voorstel.rudolf-23d.workers.dev/api/aanvraag'; // na de overstap: https://beheer.brandvizer.nl/api/aanvraag
   var BOOKING_URL=''; // Zet hier je Cal.com of Calendly link neer (bv. 'https://cal.com/rudolf/kennismaking'). Leeg = via mail.
   var book=document.getElementById('book'), res=document.getElementById('res');
   document.getElementById('rPlan').addEventListener('click',function(){ res.classList.remove('on'); book.classList.add('on'); book.scrollIntoView({behavior:reduce?'auto':'smooth',block:'start'}); setTimeout(function(){ document.getElementById('bName').focus(); },400); });
@@ -112,13 +113,16 @@
     }
     var btn=document.getElementById('bSend'), errEl=document.getElementById('bErr');
     btn.classList.add('busy'); btn.textContent='Versturen...'; errEl.hidden=true;
-    var payload={name:name,email:mail,company:comp,phone:tel,note:note,days:gDays(),part:gPart(),where:gWhere(),pk:c.pk,diag:c.diag,summary:c.summary,website:document.getElementById('bWeb').value};
+    var siteEl=document.getElementById('bSite');
+    var payload={name:name,email:mail,company:comp,phone:tel,site:siteEl?siteEl.value.trim():'',note:note,days:gDays(),part:gPart(),where:gWhere(),pk:c.pk,diag:c.diag,summary:c.summary,website:document.getElementById('bWeb').value};
     function fallbackMail(){
       var body='Hoi Rudolf,\n\nIk wil graag een gesprek van 30 minuten plannen.\n\nWANNEER PAST HET MIJ\n'+pref+'\n\nMIJN GEGEVENS\nNaam: '+name+'\nBedrijf: '+comp+'\nE-mail: '+mail+'\nTelefoon: '+(tel||'-')+'\n\nUITKOMST VAN DE CHECK\n'+c.summary+'\nJouw inschatting: '+c.diag+'\nPakket: '+c.pk+(note?'\n\nVOORAF GOED OM TE WETEN\n'+note:'')+'\n\nGroeten,\n'+name;
       location.href='mailto:rudolf@brandvizer.nl?subject='+encodeURIComponent('Gesprek plannen: '+(comp||name))+'&body='+encodeURIComponent(body);
     }
-    fetch('/api/aanvraag',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)})
-      .then(function(r){ return r.json().then(function(j){ return {ok:r.ok && j.ok, j:j}; }); })
+    // Eerst naar het voorstelplatform (komt in de pijplijn). Lukt dat niet, dan via de eigen mailroute van deze site.
+    function stuur(url){ return fetch(url,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)}).then(function(r){ return r.json().then(function(j){ return {ok:r.ok && j.ok, j:j}; }); }); }
+    stuur(URL_AANVRAAG)
+      .then(function(o){ return o.ok || (o.j && o.j.error && /e-mailadres|Te veel/.test(o.j.error)) ? o : stuur('/api/aanvraag'); }, function(){ return stuur('/api/aanvraag'); })
       .then(function(o){
         if(o.ok){ book.classList.remove('on'); document.getElementById('done').classList.add('on'); document.getElementById('checkBody').scrollIntoView({behavior:reduce?'auto':'smooth',block:'nearest'}); }
         else { errEl.textContent='Versturen lukte niet ('+(o.j&&o.j.error?o.j.error:'onbekende fout')+'). Ik open je mailprogramma als alternatief.'; errEl.hidden=false; setTimeout(fallbackMail,1200); }
