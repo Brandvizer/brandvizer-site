@@ -13,3 +13,6 @@ Statische site: `index.html` plus `assets/`. Geen build-stap.
 - Casebeelden in `assets/img/cases/`
 - Agenda-link voor de pakketkiezer: zoek in `index.html` op `BOOKING_URL`
 - Bouwscripts en context in `_build/`
+
+## Cache
+Bestanden in `assets/` worden een jaar gecachet (zie `vercel.json`). Pas je `app.js` of een CSS-bestand aan, verhoog dan in alle HTML-bestanden het getal achter `?v=`, anders zien terugkerende bezoekers de oude versie.
