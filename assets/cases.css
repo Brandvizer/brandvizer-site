@@ -107,3 +107,9 @@
   .shot-tag{left:-6px;width:42%;border-width:3px}
   .shot-hand{left:calc(42% + 2px);font-size:17px}
 }
+
+/* Uitgelichte case: strak, recht, naast elkaar */
+.shots-flat{display:flex;align-items:flex-end;gap:16px}
+.shots-flat .shot-desk{flex:1 1 76%;margin:0;transform:none;box-shadow:0 18px 40px rgba(15,27,45,.10);border:1px solid var(--line);background:var(--white)}
+.shots-flat .shot-phone{position:static;flex:0 0 22%;width:auto;transform:none;padding:5px;border-radius:22px;box-shadow:0 18px 40px rgba(15,27,45,.14)}
+.shots-flat .shot-phone img{border-radius:17px}
