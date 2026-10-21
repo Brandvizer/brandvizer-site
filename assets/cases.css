@@ -77,3 +77,21 @@
   .lv-phone{right:var(--pad);width:34%;border-radius:22px;padding:6px}
   .lv-phone .lv-screen{border-radius:17px}
 }
+
+/* Hero: echt werk naast de kop */
+.lv-screen iframe[data-src]{opacity:0;transition:opacity .6s}
+.lv-screen iframe.ready{opacity:1}
+.lv-hero{padding:0 0 46px}
+.lv-hero .lv-desk{border-radius:16px;border-left:1px solid var(--line);margin-right:64px;transform:rotate(-1deg)}
+.lv-hero .lv-screen{background:var(--paper2) url(https://www.dehoogewoeste.nl/media/hero-poster.jpg) center/cover}
+.lv-hero .lv-phone{width:clamp(120px,32%,190px);right:-6px;bottom:0;transform:rotate(2deg)}
+.lv-hero .note{left:-26px;bottom:18px;max-width:240px}
+.hero-work-cap{display:inline-block;margin-top:14px;font-family:var(--hand);font-size:var(--hand-m);color:var(--ink2);text-decoration:none}
+.hero-work-cap u{color:var(--pink-text);text-decoration-thickness:1.5px;text-underline-offset:3px}
+@media(max-width:960px){
+  .hero-work{max-width:560px;margin-top:10px}
+  .lv-hero{padding:0 0 40px}
+  .lv-hero .lv-desk{margin-right:44px}
+  .lv-hero .lv-phone{right:0;width:32%}
+  .lv-hero .note{position:absolute!important;left:-6px;bottom:6px;max-width:200px;font-size:17px}
+}

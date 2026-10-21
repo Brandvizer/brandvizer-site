@@ -437,3 +437,13 @@
   @media(max-width:960px){
     .wcards{grid-template-columns:1fr}
   }
+
+  /* Hero: "mooi" doorgestreept, marker op wat het oplevert */
+  .strike{position:relative;white-space:nowrap;transition:color .6s var(--ease) .5s}
+  .strike svg{position:absolute;left:-4%;top:42%;width:108%;height:.38em;overflow:visible;pointer-events:none}
+  .strike path{fill:none;stroke:var(--pink);stroke-width:6;stroke-linecap:round;stroke-dasharray:300;stroke-dashoffset:300;transition:stroke-dashoffset .7s var(--ease)}
+  .strike.on path{stroke-dashoffset:0}
+  .strike.on{color:var(--mute)}
+  .hero h1 .mark.on{color:var(--note-ink)}
+  .hero-trust{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 26px;margin-top:clamp(40px,6vh,70px);padding-top:22px;border-top:1px solid var(--line);color:var(--mute);font-size:var(--small)}
+  .hero-trust b{font-family:var(--display);font-weight:600;font-size:var(--body);color:var(--ink2)}
