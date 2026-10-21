@@ -37,8 +37,7 @@
   function heroSeq(){
     var st=document.getElementById('st1'), mk=document.getElementById('mk1'), nw=document.getElementById('nw1');
     if(st){
-      if(reduce){ st.classList.add('on'); mk&&mk.classList.add('on'); nw&&nw.classList.add('show'); }
-      else { setTimeout(function(){ st.classList.add('on'); },500); setTimeout(function(){ mk&&mk.classList.add('on'); },1300); setTimeout(function(){ nw&&nw.classList.add('show'); },2300); }
+      st.classList.add('on'); mk&&mk.classList.add('on'); nw&&nw.classList.add('show');
     }
     if(!document.getElementById('hl1')) return;
     var notes=['hl1','n1','hl2','n2','n4'];
