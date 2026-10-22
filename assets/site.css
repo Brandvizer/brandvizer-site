@@ -137,3 +137,13 @@ footer a{color:var(--ink2);text-decoration:none}
 }
   :root[data-theme="dark"] .theme-btn .sun{display:block}
   :root[data-theme="dark"] .theme-btn .moon{display:none}
+
+/* Kruimelpad en veelgestelde vragen */
+.crumbs{display:flex;gap:8px;align-items:center;font-size:var(--small);color:var(--mute);padding-top:clamp(20px,3vh,32px)}
+.crumbs a{color:var(--mute);text-decoration:none}
+.crumbs a:hover{color:var(--ink);text-decoration:underline}
+.faq{display:grid;gap:clamp(12px,1.6vw,18px);margin-top:18px}
+.faq h3{margin:0 0 6px;font-size:var(--h5,20px);line-height:1.25}
+.faq p{margin:0}
+.faq>h3{background:var(--white);border-radius:20px 20px 0 0;padding:22px 24px 0;margin:0}
+.faq>p{background:var(--white);border-radius:0 0 20px 20px;padding:6px 24px 22px;margin-top:calc(-1 * clamp(12px,1.6vw,18px))}
