@@ -550,3 +550,7 @@
   .pack .btn{align-self:end}
   @supports not (grid-template-rows:subgrid){ .pack{display:flex} }
   @media(max-width:700px){ .pack{grid-row:auto;grid-template-rows:none;display:flex} }
+
+  /* Spring-links komen niet meer onder de vaste kopbalk terecht */
+  html{scroll-padding-top:96px}
+  .mmenu a[aria-current]{color:var(--pink-text)}

@@ -6,20 +6,7 @@
   /* Nav */
   var nav=document.getElementById('nav');
   addEventListener('scroll',function(){ nav.classList.toggle('solid',scrollY>20); },{passive:true});
-  (function(){
-    var links=Array.prototype.slice.call(document.querySelectorAll('.nav-links a[href^="#"]'));
-    var secs=links.map(function(a){ return document.querySelector(a.getAttribute('href')); });
-    function mark(){
-      var y=scrollY+140, best=-1;
-      secs.forEach(function(s,i){ if(s && s.offsetTop<=y) best=i; });
-      links.forEach(function(a,i){ a.classList.toggle('here',i===best); });
-    }
-    addEventListener('scroll',mark,{passive:true}); addEventListener('resize',mark); mark();
-  })();
-  var btn=document.getElementById('menuBtn'), m=document.getElementById('mmenu');
-  function setMenu(o){ m.classList.toggle('open',o); btn.setAttribute('aria-expanded',o); btn.textContent=o?'Sluit':'Menu'; document.body.style.overflow=o?'hidden':''; }
-  btn.addEventListener('click',function(){ setMenu(!m.classList.contains('open')); });
-  m.querySelectorAll('a').forEach(function(a){ a.addEventListener('click',function(){ setMenu(false); }); });
+  /* Menu en actieve sectie staan in theme.js, zodat ze op elke pagina hetzelfde werken */
 
   /* Hero mock: place highlights around fields */
   function placeHL(){
