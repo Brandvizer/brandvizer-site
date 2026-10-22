@@ -6,20 +6,7 @@
   /* Nav */
   var nav=document.getElementById('nav');
   addEventListener('scroll',function(){ nav.classList.toggle('solid',scrollY>20); },{passive:true});
-  (function(){
-    var links=Array.prototype.slice.call(document.querySelectorAll('.nav-links a[href^="#"]'));
-    var secs=links.map(function(a){ return document.querySelector(a.getAttribute('href')); });
-    function mark(){
-      var y=scrollY+140, best=-1;
-      secs.forEach(function(s,i){ if(s && s.offsetTop<=y) best=i; });
-      links.forEach(function(a,i){ a.classList.toggle('here',i===best); });
-    }
-    addEventListener('scroll',mark,{passive:true}); addEventListener('resize',mark); mark();
-  })();
-  var btn=document.getElementById('menuBtn'), m=document.getElementById('mmenu');
-  function setMenu(o){ m.classList.toggle('open',o); btn.setAttribute('aria-expanded',o); btn.textContent=o?'Sluit':'Menu'; document.body.style.overflow=o?'hidden':''; }
-  btn.addEventListener('click',function(){ setMenu(!m.classList.contains('open')); });
-  m.querySelectorAll('a').forEach(function(a){ a.addEventListener('click',function(){ setMenu(false); }); });
+  /* Menu en actieve sectie staan in theme.js, zodat ze op elke pagina hetzelfde werken */
 
   /* Hero mock: place highlights around fields */
   function placeHL(){
@@ -35,6 +22,11 @@
 
   /* Hero sequence */
   function heroSeq(){
+    var st=document.getElementById('st1'), mk=document.getElementById('mk1');
+    if(st){
+      if(reduce){ st.classList.add('on'); mk&&mk.classList.add('on'); }
+      else { setTimeout(function(){ st.classList.add('on'); },150); setTimeout(function(){ mk&&mk.classList.add('on'); },750); }
+    }
     if(!document.getElementById('hl1')) return;
     var notes=['hl1','n1','hl2','n2','n4'];
     if(reduce){ notes.forEach(function(id){document.getElementById(id).classList.add('show');}); document.getElementById('ul1').classList.add('on'); return; }
@@ -47,6 +39,33 @@
     gsap.from('[data-hero]',{opacity:0,y:24,duration:.9,ease:'power3.out',stagger:.1,onComplete:heroSeq});
   } else { heroSeq(); }
 
+
+
+  /* Carrousel werk: zoals Anchor. Geen automatisch afspelen; bij elke nieuwe tegel bouwt de inhoud zich op */
+  document.querySelectorAll('.car').forEach(function(car){
+    var track=car.querySelector('.car-track'), sec=car.closest('section');
+    var slides=[].slice.call(track.querySelectorAll('.car-slide'));
+    var btns=sec.querySelectorAll('.car-btn[data-dir]'), dots=sec.querySelector('.car-dots'), idx=-1, busy=false;
+    if(dots){ slides.forEach(function(sl,i){ var d=document.createElement('button'); d.type='button'; d.setAttribute('aria-label','Case '+(i+1)); d.addEventListener('click',function(){ go(i); }); dots.appendChild(d); }); }
+    var dotEls=dots?[].slice.call(dots.children):[];
+    function x(i){ return slides[i].offsetLeft-slides[0].offsetLeft; }
+    function mark(i){ if(i===idx) return; idx=i;
+      slides.forEach(function(sl,k){ sl.classList.toggle('on',k===i); sl.setAttribute('aria-hidden',k!==i); sl.tabIndex=k===i?0:-1; });
+      dotEls.forEach(function(d,k){ d.classList.toggle('on',k===i); d.setAttribute('aria-current',k===i?'true':'false'); });
+      btns.forEach(function(b){ b.disabled=(+b.dataset.dir<0&&i===0)||(+b.dataset.dir>0&&i===slides.length-1); }); }
+    /* Schuiven in 1 seconde met een zachte uitloop, net als Anchor */
+    function glide(to){ var from=track.scrollLeft, d=to-from; if(reduce||Math.abs(d)<2){ track.scrollLeft=to; return; }
+      busy=true; track.style.scrollSnapType='none'; var t0=null, dur=1000;
+      function f(t){ if(!t0) t0=t; var p=Math.min(1,(t-t0)/dur), e=1-Math.pow(1-p,4); track.scrollLeft=from+d*e;
+        if(p<1) requestAnimationFrame(f); else { track.style.scrollSnapType=''; busy=false; } }
+      requestAnimationFrame(f); }
+    function go(i){ i=Math.max(0,Math.min(slides.length-1,i)); glide(x(i)); mark(i); }
+    btns.forEach(function(b){ b.addEventListener('click',function(){ go(idx+(+b.dataset.dir)); }); });
+    track.addEventListener('keydown',function(e){ if(e.key==='ArrowRight'||e.key==='ArrowLeft'){ e.preventDefault(); go(idx+(e.key==='ArrowRight'?1:-1)); } });
+    var st; track.addEventListener('scroll',function(){ if(busy) return; clearTimeout(st); st=setTimeout(function(){ var best=0,bd=1e9; slides.forEach(function(sl,i){ var d=Math.abs(x(i)-track.scrollLeft); if(d<bd){bd=d;best=i;} }); mark(best); },140); },{passive:true});
+    mark(0);
+    if('IntersectionObserver' in window){ var io=new IntersectionObserver(function(es){ if(es[0].isIntersecting){ car.classList.add('seen'); io.disconnect(); } },{threshold:.35}); io.observe(car); } else { car.classList.add('seen'); }
+  });
   /* Mobile CTA: pas tonen na de hero */
   var mcta=document.querySelector('.mcta'), heroAct=document.querySelector('.hero .actions');
   if(mcta&&heroAct){ mcta.style.transform='translateY(120%)'; mcta.style.transition='transform .4s var(--ease)';

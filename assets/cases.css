@@ -6,7 +6,10 @@
 .cs.flip{grid-template-columns:minmax(var(--pad),1fr) minmax(0,620px) minmax(0,780px) minmax(var(--pad),1fr)}
 .cs.flip .cs-media{grid-column:3/5;order:2}
 .cs.flip .cs-text{grid-column:2/3;padding-right:0;padding-left:var(--pad)}
-.cs-main{margin:0;border-radius:0 28px 28px 0;overflow:hidden;box-shadow:0 30px 70px rgba(15,27,45,.16);background:var(--paper2)}
+.cs-main{margin:0;border-radius:0 28px 28px 0;overflow:hidden;background:var(--paper2)}
+/* Lichte beelden (witte of grijze achtergrond) krijgen een dunne rand, foto's niets */
+.cs-main.light{border:1px solid var(--line);border-left:0}
+.cs.flip .cs-main.light{border-left:1px solid var(--line);border-right:0}
 .cs.flip .cs-main{border-radius:28px 0 0 28px}
 .cs-main img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;transition:opacity .35s}
 .cs-main img.swap{opacity:0}
@@ -30,15 +33,14 @@
 .cs-quote.sm{font-size:var(--body);padding:14px 16px;margin-top:14px}
 .cs-more-head{margin-top:clamp(60px,9vw,120px)}
 .cs-more-head h3{max-width:22ch}
-.cs-grid{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-top:40px}
-.csm{background:var(--white);border:1px solid var(--line);border-radius:24px;overflow:hidden;display:flex;flex-direction:column;transition:transform .4s var(--ease),box-shadow .4s}
-.csm:hover{transform:translateY(-4px);box-shadow:0 24px 60px rgba(15,27,45,.12)}
+.cs-grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--card-gap);margin-top:40px}
+.csm{background:var(--white);border-radius:24px;overflow:hidden;display:flex;flex-direction:column;transition:transform .4s var(--ease),box-shadow .4s}
 .csm-media{position:relative;background:var(--paper2)}
 .csm-main{width:100%;aspect-ratio:16/10;object-fit:cover;display:block;transition:opacity .35s}
 .csm-main.swap{opacity:0}
 .csm-thumbs{display:flex;gap:6px;padding:10px 14px 0;position:absolute;left:0;bottom:12px}
 .csm-thumbs button{width:48px;height:36px;border-radius:7px;border-color:rgba(255,255,255,.9);opacity:.85;box-shadow:0 4px 12px rgba(15,27,45,.25)}
-.csm-text{padding:24px 26px 28px}
+.csm-text{padding:var(--card-pad)}
 .csm-text h4{margin:8px 0 14px}
 .csm-text p{color:var(--ink2);margin-bottom:12px}
 .csm-text p b{color:var(--ink);font-weight:600}
@@ -52,3 +54,4 @@
   .cs.flip .cs-thumbs{padding-left:var(--pad);padding-right:0;justify-content:flex-start}
   .cs-grid{grid-template-columns:1fr}
 }
+
