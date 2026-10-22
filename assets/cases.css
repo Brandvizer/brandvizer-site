@@ -34,8 +34,7 @@
 .cs-more-head{margin-top:clamp(60px,9vw,120px)}
 .cs-more-head h3{max-width:22ch}
 .cs-grid{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-top:40px}
-.csm{background:var(--white);border:1px solid var(--line);border-radius:24px;overflow:hidden;display:flex;flex-direction:column;transition:transform .4s var(--ease),box-shadow .4s}
-.csm:hover{transform:translateY(-4px);border-color:var(--ink2)}
+.csm{background:var(--white);border-radius:24px;overflow:hidden;display:flex;flex-direction:column;transition:transform .4s var(--ease),box-shadow .4s}
 .csm-media{position:relative;background:var(--paper2)}
 .csm-main{width:100%;aspect-ratio:16/10;object-fit:cover;display:block;transition:opacity .35s}
 .csm-main.swap{opacity:0}
