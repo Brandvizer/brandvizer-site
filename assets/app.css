@@ -482,7 +482,7 @@
 
   /* Werk: uitgelichte case, zelfde tegel als eronder maar liggend */
   .wcard.wfeat{display:grid;grid-template-columns:1fr 1fr;margin-top:44px}
-  .wcard.wfeat>img{grid-column:2;grid-row:1;width:100%;height:auto;aspect-ratio:800/637;object-fit:cover}
+  .wcard.wfeat>img{grid-column:2;grid-row:1;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover}
   .wcard.wfeat .wcard-t{grid-column:1;grid-row:1;padding:clamp(24px,3.5vw,48px);justify-content:center;gap:12px}
   .wcard.wfeat .wcard-go{margin-top:8px;flex:0}
   @media(max-width:960px){ .wcard.wfeat{grid-template-columns:1fr} .wcard.wfeat>img{grid-column:1;grid-row:1} .wcard.wfeat .wcard-t{grid-column:1;grid-row:2} }
