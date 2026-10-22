@@ -481,9 +481,9 @@
   @media(max-width:960px){ .about-text{grid-template-columns:1fr;gap:18px} }
 
   /* Werk: uitgelichte case, zelfde tegel als eronder maar liggend */
-  .wcard.wfeat{flex-direction:row-reverse;margin-top:44px}
-  .wcard.wfeat>img{width:50%;aspect-ratio:auto;min-height:100%;object-fit:cover;object-position:left center}
-  .wcard.wfeat .wcard-t{width:50%;padding:clamp(24px,3.5vw,48px);justify-content:center;gap:12px}
-  .wcard.wfeat .wcard-go{margin-top:8px}
-  @media(max-width:960px){ .wcard.wfeat{flex-direction:column} .wcard.wfeat>img,.wcard.wfeat .wcard-t{width:100%} .wcard.wfeat>img{aspect-ratio:16/10;min-height:0;height:auto} }
+  .wcard.wfeat{display:grid;grid-template-columns:1fr 1fr;margin-top:44px}
+  .wcard.wfeat>img{grid-column:2;grid-row:1;width:100%;height:auto;aspect-ratio:800/637;object-fit:cover}
+  .wcard.wfeat .wcard-t{grid-column:1;grid-row:1;padding:clamp(24px,3.5vw,48px);justify-content:center;gap:12px}
+  .wcard.wfeat .wcard-go{margin-top:8px;flex:0}
+  @media(max-width:960px){ .wcard.wfeat{grid-template-columns:1fr} .wcard.wfeat>img{grid-column:1;grid-row:1} .wcard.wfeat .wcard-t{grid-column:1;grid-row:2} }
   .wcard.wfeat h3{font-size:var(--h4);line-height:1.2}
