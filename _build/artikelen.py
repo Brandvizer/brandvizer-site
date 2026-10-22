@@ -52,7 +52,7 @@ def build(a):
     rest = re.sub(r'<script type="application/ld\+json">.*?</script>\n?', "", rest, flags=re.S)
     also = "".join(f'<a href="/kennis/{s}">{ALL[s][1]}</a>' for s in a["also"])
     main = f'''<main>
-<nav class="wrap crumbs" aria-label="Kruimelpad"><a href="/">Home</a><span>/</span><a href="/kennis">Kennis</a></nav>
+<nav class="wrap crumbs" aria-label="Terug"><a href="/kennis"><span aria-hidden="true">&larr;</span> Alle artikelen</a></nav>
 <section class="wrap art-head">
   <div class="eyebrow">{a["cat"]}</div>
   <h1>{a["title"]}</h1>
