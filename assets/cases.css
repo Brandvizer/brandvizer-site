@@ -33,14 +33,14 @@
 .cs-quote.sm{font-size:var(--body);padding:14px 16px;margin-top:14px}
 .cs-more-head{margin-top:clamp(60px,9vw,120px)}
 .cs-more-head h3{max-width:22ch}
-.cs-grid{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-top:40px}
+.cs-grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--card-gap);margin-top:40px}
 .csm{background:var(--white);border-radius:24px;overflow:hidden;display:flex;flex-direction:column;transition:transform .4s var(--ease),box-shadow .4s}
 .csm-media{position:relative;background:var(--paper2)}
 .csm-main{width:100%;aspect-ratio:16/10;object-fit:cover;display:block;transition:opacity .35s}
 .csm-main.swap{opacity:0}
 .csm-thumbs{display:flex;gap:6px;padding:10px 14px 0;position:absolute;left:0;bottom:12px}
 .csm-thumbs button{width:48px;height:36px;border-radius:7px;border-color:rgba(255,255,255,.9);opacity:.85;box-shadow:0 4px 12px rgba(15,27,45,.25)}
-.csm-text{padding:24px 26px 28px}
+.csm-text{padding:var(--card-pad)}
 .csm-text h4{margin:8px 0 14px}
 .csm-text p{color:var(--ink2);margin-bottom:12px}
 .csm-text p b{color:var(--ink);font-weight:600}
