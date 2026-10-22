@@ -491,3 +491,24 @@
   /* Schaduw bij hover op klikbare tegels, donker iets sterker */
   @media(prefers-color-scheme:dark){ :root:not([data-theme="light"]){--hover-shadow:0 18px 44px rgba(0,0,0,.45)} }
   :root[data-theme="dark"]{--hover-shadow:0 18px 44px rgba(0,0,0,.45)}
+
+  /* Werk als carrousel: grote liggende tegels, volgende piept rechts in beeld */
+  .car-head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px}
+  .car-nav{display:flex;gap:10px;flex-shrink:0}
+  .car-btn{width:52px;height:52px;border-radius:14px;border:0;background:var(--white);color:var(--ink);display:inline-flex;align-items:center;justify-content:center;cursor:pointer;transition:box-shadow .3s,opacity .2s}
+  .car-btn:hover{box-shadow:var(--hover-shadow)}
+  .car-btn:disabled{opacity:.35;cursor:default;box-shadow:none}
+  .car-btn svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+  .car{margin-top:44px}
+  .car-track{display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;scrollbar-width:none;
+    padding:6px max(var(--pad),calc((100vw - var(--maxw))/2 + var(--pad))) 30px;scroll-padding-left:max(var(--pad),calc((100vw - var(--maxw))/2 + var(--pad)))}
+  .car-track::-webkit-scrollbar{display:none}
+  .car-track:focus-visible{outline:none}
+  .car-slide{flex:0 0 min(calc(100vw - 2*var(--pad) - 60px),calc(var(--maxw) - 2*var(--pad)));scroll-snap-align:start;margin-top:0}
+  .car-slide:hover{transform:none}
+  @media(prefers-reduced-motion:reduce){ .car-track{scroll-behavior:auto} }
+  @media(max-width:960px){
+    .car-nav{display:none}
+    .car-slide{flex-basis:calc(100vw - 2*var(--pad) - 28px)}
+    .car-track{gap:12px}
+  }

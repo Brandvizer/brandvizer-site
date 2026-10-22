@@ -53,6 +53,17 @@
   } else { heroSeq(); }
 
 
+
+  /* Carrousel werk: pijlen schuiven één tegel, geen automatisch afspelen */
+  document.querySelectorAll('.car').forEach(function(car){
+    var track=car.querySelector('.car-track'), sec=car.closest('section'), btns=sec?sec.querySelectorAll('.car-btn'):[];
+    function step(){ var sl=track.querySelector('.car-slide'); return sl? sl.getBoundingClientRect().width+parseFloat(getComputedStyle(track).columnGap||20) : track.clientWidth; }
+    function upd(){ var max=track.scrollWidth-track.clientWidth-2; btns.forEach(function(b){ b.disabled = (+b.dataset.dir<0 && track.scrollLeft<=2) || (+b.dataset.dir>0 && track.scrollLeft>=max); }); }
+    btns.forEach(function(b){ b.addEventListener('click',function(){ track.scrollBy({left:+b.dataset.dir*step()}); }); });
+    track.addEventListener('keydown',function(e){ if(e.key==='ArrowRight'||e.key==='ArrowLeft'){ e.preventDefault(); track.scrollBy({left:(e.key==='ArrowRight'?1:-1)*step()}); } });
+    track.addEventListener('scroll',function(){ window.requestAnimationFrame(upd); },{passive:true});
+    addEventListener('resize',upd); upd();
+  });
   /* Mobile CTA: pas tonen na de hero */
   var mcta=document.querySelector('.mcta'), heroAct=document.querySelector('.hero .actions');
   if(mcta&&heroAct){ mcta.style.transform='translateY(120%)'; mcta.style.transition='transform .4s var(--ease)';

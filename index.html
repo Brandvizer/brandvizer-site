@@ -28,7 +28,7 @@
 {"@context":"https://schema.org","@type":"ProfessionalService","name":"Brandvizer","description":"Websites, webshops en apps voor het MKB. Ontwerp en bouw door één persoon, vaste prijs, hosting geregeld.","areaServed":[{"@type":"City","name":"Apeldoorn"},{"@type":"City","name":"Zwolle"},{"@type":"City","name":"Deventer"},{"@type":"City","name":"Vaassen"},{"@type":"City","name":"Epe"},{"@type":"City","name":"Heerde"},{"@type":"City","name":"Hattem"},{"@type":"City","name":"Twello"},{"@type":"City","name":"Raalte"}],"address":{"@type":"PostalAddress","addressLocality":"Vaassen","addressRegion":"Gelderland","addressCountry":"NL"},"email":"rudolf@brandvizer.nl","telephone":"+31643426082","url":"https://www.brandvizer.nl","founder":{"@type":"Person","name":"Rudolf van der Velde"}}
 </script>
 <link rel="stylesheet" href="/assets/cases.css?v=20261022d">
-<link rel="stylesheet" href="/assets/app.css?v=20261022e">
+<link rel="stylesheet" href="/assets/app.css?v=20261022f">
 <script defer src="/_vercel/insights/script.js"></script>
 <link rel="canonical" href="https://www.brandvizer.nl/">
 <script defer src="/assets/theme.js?v=20261015"></script>
@@ -127,49 +127,70 @@
 </section>
 
 <!-- WERK -->
-<section id="werk" class="sec wrap">
-  <div class="eyebrow rv">Bewijs</div>
-  <h2 class="h2 rv">Geen mooie plaatjes. Wel <span class="mark" data-mark>waarom het werkte.</span></h2>
-  <p class="lead rv" style="margin-top:22px">Van een vakantieboerderij in Emst tot ABN AMRO. Steeds hetzelfde recept: eerst uitzoeken waar mensen vastlopen, dan pas bouwen.</p>
-  <a class="wcard wfeat rv" href="/werk#case-hoogewoeste">
-    <img src="/assets/img/cases/hoogewoeste-1.jpg?v=2" alt="Homepage van De Hooge Woeste: de boerderij met rieten dak tussen de bomen" width="1600" height="1200" loading="lazy">
-    <div class="wcard-t">
-      <div class="cs-client">De Hooge Woeste, Emst</div>
-      <h3>Drie huisjes, vier paardenstallen en een boerderij uit 1925. Nu met een eigen site waar gasten direct aanvragen</h3>
-      <p>Eerst het gevoel, dan alle feiten open: prijs per nacht, eindschoonmaak, wel of geen ontbijt. Geen verrassingen, dus geen reden om af te haken.</p>
-      <span class="wcard-go">Lees de case &rarr;</span>
+<section id="werk" class="sec">
+  <div class="wrap">
+    <div class="eyebrow rv">Bewijs</div>
+    <div class="car-head">
+      <h2 class="h2 rv">Geen mooie plaatjes. Wel <span class="mark" data-mark>waarom het werkte.</span></h2>
+      <div class="car-nav rv">
+        <button type="button" class="car-btn" data-dir="-1" aria-label="Vorige case"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
+        <button type="button" class="car-btn" data-dir="1" aria-label="Volgende case"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
+      </div>
     </div>
-  </a>
-  <div class="wcards">
-    <a class="wcard rv" href="/werk#case-svb">
-      <img src="/assets/img/cases/waldo-1.jpg" alt="Waldo app van de SVB: een levensbewijs digitaal indienen">
-      <div class="wcard-t">
-        <div class="cs-client">Sociale Verzekeringsbank</div>
-        <h3>200.000 mensen die elk jaar een papiertje moesten opsturen</h3>
-        <p>Een levensbewijs indienen kost nu een paar minuten op je telefoon, met direct bericht dat het gelukt is.</p>
-        <span class="wcard-go">Lees de case &rarr;</span>
-      </div>
-    </a>
-    <a class="wcard rv" href="/werk#case-abnamro">
-      <img src="/assets/img/cases/abn-1.jpg" alt="Het open domein van ABN AMRO">
-      <div class="wcard-t">
-        <div class="cs-client">ABN AMRO</div>
-        <h3>Veel bezoekers, weinig klanten. De website van een bank die niemand meer vond</h3>
-        <p>Zes jaar later draait de bank nog steeds op dit fundament. De manier van werken werd de standaard.</p>
-        <span class="wcard-go">Lees de case &rarr;</span>
-      </div>
-    </a>
-    <a class="wcard rv" href="/werk#case-belastingdienst">
-      <img src="/assets/img/cases/ict-1.jpg" alt="ICT888 app van de Belastingdienst">
-      <div class="wcard-t">
-        <div class="cs-client">Belastingdienst</div>
-        <h3>Een app voor duizenden medewerkers die niemand opende</h3>
-        <p>Een app die medewerkers w&eacute;l openen, en een design system waarmee elk volgend scherm sneller gebouwd wordt.</p>
-        <span class="wcard-go">Lees de case &rarr;</span>
-      </div>
-    </a>
+    <p class="lead rv" style="margin-top:22px">Van een vakantieboerderij in Emst tot ABN AMRO. Steeds hetzelfde recept: eerst uitzoeken waar mensen vastlopen, dan pas bouwen.</p>
   </div>
-  <p class="rv" style="margin-top:30px"><a class="btn ghost" href="/werk">Al mijn werk bekijken</a></p>
+  <div class="car rv" role="region" aria-roledescription="carrousel" aria-label="Cases">
+    <div class="car-track" tabindex="0">
+      <a class="wcard wfeat car-slide" href="/werk#case-hoogewoeste" aria-label="Case 1 van 5: De Hooge Woeste, Emst">
+        <img src="/assets/img/cases/hoogewoeste-1.jpg?v=2" alt="Homepage van De Hooge Woeste: de boerderij met rieten dak tussen de bomen" loading="lazy">
+        <div class="wcard-t">
+          <div class="cs-client">De Hooge Woeste, Emst</div>
+          <h3>Drie huisjes, vier paardenstallen en een boerderij uit 1925. Nu met een eigen site waar gasten direct aanvragen</h3>
+          <p>Eerst het gevoel, dan alle feiten open: prijs per nacht, eindschoonmaak, wel of geen ontbijt. Geen verrassingen, dus geen reden om af te haken.</p>
+          <span class="wcard-go">Lees de case &rarr;</span>
+        </div>
+      </a>
+      <a class="wcard wfeat car-slide" href="/werk#case-projectreports" aria-label="Case 2 van 5: Projectreports">
+        <img src="/assets/img/cases/projectreports-1.jpg?v=2" alt="Modal en zijpaneel uit het design system van Projectreports" loading="lazy">
+        <div class="wcard-t">
+          <div class="cs-client">Projectreports</div>
+          <h3>Een tool vol velden, vinkjes en stoplichten. Hoe hou je dat rustig?</h3>
+          <p>Een design system waarin alles zich overal hetzelfde gedraagt, in licht en donker. Wie elke maand rapporteert, hoeft niet meer na te denken over de tool.</p>
+          <span class="wcard-go">Lees de case &rarr;</span>
+        </div>
+      </a>
+      <a class="wcard wfeat car-slide" href="/werk#case-svb" aria-label="Case 3 van 5: Sociale Verzekeringsbank">
+        <img src="/assets/img/cases/waldo-1.jpg" alt="Waldo app van de SVB: een levensbewijs digitaal indienen" loading="lazy">
+        <div class="wcard-t">
+          <div class="cs-client">Sociale Verzekeringsbank</div>
+          <h3>200.000 mensen die elk jaar een papiertje moesten opsturen</h3>
+          <p>Een levensbewijs indienen kost nu een paar minuten op je telefoon, met direct bericht dat het gelukt is.</p>
+          <span class="wcard-go">Lees de case &rarr;</span>
+        </div>
+      </a>
+      <a class="wcard wfeat car-slide" href="/werk#case-abnamro" aria-label="Case 4 van 5: ABN AMRO">
+        <img src="/assets/img/cases/abn-1.jpg" alt="Het open domein van ABN AMRO" loading="lazy">
+        <div class="wcard-t">
+          <div class="cs-client">ABN AMRO</div>
+          <h3>Veel bezoekers, weinig klanten. De website van een bank die niemand meer vond</h3>
+          <p>Zes jaar later draait de bank nog steeds op dit fundament. De manier van werken werd de standaard.</p>
+          <span class="wcard-go">Lees de case &rarr;</span>
+        </div>
+      </a>
+      <a class="wcard wfeat car-slide" href="/werk#case-belastingdienst" aria-label="Case 5 van 5: Belastingdienst">
+        <img src="/assets/img/cases/ict-1.jpg" alt="ICT888 app van de Belastingdienst" loading="lazy">
+        <div class="wcard-t">
+          <div class="cs-client">Belastingdienst</div>
+          <h3>Een app voor duizenden medewerkers die niemand opende</h3>
+          <p>Een app die medewerkers w&eacute;l openen, en een design system waarmee elk volgend scherm sneller gebouwd wordt.</p>
+          <span class="wcard-go">Lees de case &rarr;</span>
+        </div>
+      </a>
+    </div>
+  </div>
+  <div class="wrap">
+    <p class="rv" style="margin-top:30px"><a class="btn ghost" href="/werk">Al mijn werk bekijken</a></p>
+  </div>
 </section>
 
 <section id="reviews" class="sec wrap">
@@ -282,6 +303,6 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-<script defer src="/assets/app.js?v=20261022"></script>
+<script defer src="/assets/app.js?v=20261022b"></script>
 </body>
 </html>
