@@ -499,6 +499,22 @@
   .car-btn:hover{box-shadow:var(--hover-shadow)}
   .car-btn:disabled{opacity:.35;cursor:default;box-shadow:none}
   .car-btn svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+  .car-play .i-play{display:none;fill:currentColor;stroke:none}
+  .car-play.paused .i-play{display:block} .car-play.paused .i-pause{display:none}
+  .car-foot{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-top:6px}
+  .car-dots{display:flex;gap:8px;align-items:center}
+  .car-dots button{position:relative;width:10px;height:10px;border-radius:999px;border:0;padding:0;background:var(--line);cursor:pointer;overflow:hidden;transition:width .4s var(--ease)}
+  .car-dots button.on{width:44px}
+  .car-dots button i{position:absolute;inset:0;transform-origin:left;transform:scaleX(0);background:var(--pink)}
+  .car-dots button.on i{transform:scaleX(1)}
+  .car-dots.run button.on i{animation:carfill var(--car-time,6s) linear forwards}
+  .car-dots.hold button.on i{animation-play-state:paused}
+  @keyframes carfill{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+  /* Tekst in de actieve tegel komt rustig binnen */
+  .car-slide .wcard-t>*{transition:opacity .6s var(--ease),transform .6s var(--ease)}
+  .car.ready .car-slide:not(.on) .wcard-t>*{opacity:.35;transform:translateY(8px)}
+  .car-slide>img{transition:transform 1.2s var(--ease)}
+  .car.ready .car-slide.on>img{transform:scale(1.02)}
   .car{margin-top:44px}
   .car-track{display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;scrollbar-width:none;
     padding:6px max(var(--pad),calc((100vw - var(--maxw))/2 + var(--pad))) 30px;scroll-padding-left:max(var(--pad),calc((100vw - var(--maxw))/2 + var(--pad)))}
@@ -506,9 +522,9 @@
   .car-track:focus-visible{outline:none}
   .car-slide{flex:0 0 min(calc(100vw - 2*var(--pad) - 60px),calc(var(--maxw) - 2*var(--pad)));scroll-snap-align:start;margin-top:0}
   .car-slide:hover{transform:none}
-  @media(prefers-reduced-motion:reduce){ .car-track{scroll-behavior:auto} }
+  @media(prefers-reduced-motion:reduce){ .car-track{scroll-behavior:auto} .car-slide .wcard-t>*,.car-slide>img{transition:none} .car.ready .car-slide.on>img{transform:none} }
   @media(max-width:960px){
-    .car-nav{display:none}
+    .car-nav .car-btn[data-dir]{display:none}
     .car-slide{flex-basis:calc(100vw - 2*var(--pad) - 28px)}
     .car-track{gap:12px}
   }

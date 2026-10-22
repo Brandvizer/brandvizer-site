@@ -54,15 +54,37 @@
 
 
 
-  /* Carrousel werk: pijlen schuiven één tegel, geen automatisch afspelen */
+  /* Carrousel werk: speelt vanzelf af, pauzeert bij hover, focus of de pauzeknop */
   document.querySelectorAll('.car').forEach(function(car){
-    var track=car.querySelector('.car-track'), sec=car.closest('section'), btns=sec?sec.querySelectorAll('.car-btn'):[];
-    function step(){ var sl=track.querySelector('.car-slide'); return sl? sl.getBoundingClientRect().width+parseFloat(getComputedStyle(track).columnGap||20) : track.clientWidth; }
-    function upd(){ var max=track.scrollWidth-track.clientWidth-2; btns.forEach(function(b){ b.disabled = (+b.dataset.dir<0 && track.scrollLeft<=2) || (+b.dataset.dir>0 && track.scrollLeft>=max); }); }
-    btns.forEach(function(b){ b.addEventListener('click',function(){ track.scrollBy({left:+b.dataset.dir*step()}); }); });
-    track.addEventListener('keydown',function(e){ if(e.key==='ArrowRight'||e.key==='ArrowLeft'){ e.preventDefault(); track.scrollBy({left:(e.key==='ArrowRight'?1:-1)*step()}); } });
-    track.addEventListener('scroll',function(){ window.requestAnimationFrame(upd); },{passive:true});
-    addEventListener('resize',upd); upd();
+    var track=car.querySelector('.car-track'), sec=car.closest('section');
+    var slides=[].slice.call(track.querySelectorAll('.car-slide'));
+    var btns=sec.querySelectorAll('.car-btn[data-dir]'), play=sec.querySelector('.car-play'), dots=sec.querySelector('.car-dots');
+    var TIME=6000, idx=0, timer=null, paused=reduce, hover=false, t0=0, left=TIME;
+    if(dots){ dots.style.setProperty('--car-time',TIME+'ms');
+      slides.forEach(function(sl,i){ var d=document.createElement('button'); d.type='button'; d.setAttribute('role','tab'); d.setAttribute('aria-label','Case '+(i+1)); d.innerHTML='<i></i>'; d.addEventListener('click',function(){ go(i,true); }); dots.appendChild(d); }); }
+    var dotEls=dots?[].slice.call(dots.children):[];
+    function x(i){ return slides[i].offsetLeft-slides[0].offsetLeft; }
+    function mark(i){ idx=i; slides.forEach(function(sl,k){ sl.classList.toggle('on',k===i); });
+      dotEls.forEach(function(d,k){ d.classList.toggle('on',k===i); d.setAttribute('aria-selected',k===i); var n=d.querySelector('i'); n.style.animation='none'; void n.offsetWidth; n.style.animation=''; });
+      var max=track.scrollWidth-track.clientWidth-2; btns.forEach(function(b){ b.disabled=false; }); }
+    function go(i,user){ i=(i+slides.length)%slides.length; track.scrollTo({left:x(i)}); mark(i); if(user){ stop(); } restart(); }
+    function running(){ return !paused && !hover && !document.hidden; }
+    function restart(){ clearTimeout(timer); t0=0; left=TIME; schedule(); }
+    function schedule(){ clearTimeout(timer); if(dots){ dots.classList.toggle('run',!paused); dots.classList.toggle('hold',!running()); }
+      if(!running()){ t0=0; return; } t0=Date.now(); timer=setTimeout(function(){ go(idx+1); },left); }
+    function hold(on){ if(on===hover) return; if(on && t0){ left=Math.max(400,left-(Date.now()-t0)); } clearTimeout(timer); t0=0; hover=on; schedule(); }
+    function stop(){ paused=true; if(play){ play.classList.add('paused'); play.setAttribute('aria-pressed','true'); play.setAttribute('aria-label','Speel carrousel af'); } }
+    if(play){ if(paused){ stop(); }
+      play.addEventListener('click',function(){ paused=!paused; play.classList.toggle('paused',paused); play.setAttribute('aria-pressed',paused); play.setAttribute('aria-label',paused?'Speel carrousel af':'Pauzeer carrousel'); restart(); }); }
+    btns.forEach(function(b){ b.addEventListener('click',function(){ go(idx+(+b.dataset.dir),true); }); });
+    track.addEventListener('keydown',function(e){ if(e.key==='ArrowRight'||e.key==='ArrowLeft'){ e.preventDefault(); go(idx+(e.key==='ArrowRight'?1:-1),true); } });
+    car.addEventListener('mouseenter',function(){ hold(true); }); car.addEventListener('mouseleave',function(){ hold(false); });
+    car.addEventListener('focusin',function(){ hold(true); }); car.addEventListener('focusout',function(){ hold(false); });
+    var st; track.addEventListener('scroll',function(){ clearTimeout(st); st=setTimeout(function(){ var best=0,bd=1e9; slides.forEach(function(sl,i){ var d=Math.abs(x(i)-track.scrollLeft); if(d<bd){bd=d;best=i;} }); if(best!==idx){ mark(best); restart(); } },120); },{passive:true});
+    track.addEventListener('touchstart',function(){ stop(); schedule(); },{passive:true});
+    document.addEventListener('visibilitychange',schedule);
+    mark(0); car.classList.add('ready');
+    if('IntersectionObserver' in window){ new IntersectionObserver(function(es){ hold(!es[0].isIntersecting); },{threshold:.3}).observe(car); } else { schedule(); }
   });
   /* Mobile CTA: pas tonen na de hero */
   var mcta=document.querySelector('.mcta'), heroAct=document.querySelector('.hero .actions');
