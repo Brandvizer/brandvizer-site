@@ -141,7 +141,7 @@
   /* Pain */
   .pains{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:50px}
   .pain{background:var(--white);border:1px solid var(--line);border-radius:20px;padding:28px 28px 24px;position:relative;transition:transform .4s var(--ease),box-shadow .4s}
-  .pain:hover{transform:translateY(-4px);box-shadow:0 20px 50px rgba(15,27,45,.1)}
+  .pain:hover{transform:translateY(-4px);border-color:var(--ink2)}
   .pain q{font-family:var(--display);font-weight:500;font-size:var(--h4);letter-spacing:-.02em;line-height:1.2;display:block;quotes:"“" "”"}
   .pain q::before{content:open-quote;color:var(--pink)}
   .pain q::after{content:close-quote;color:var(--pink)}
@@ -153,7 +153,7 @@
   /* Reviews */
   .revs{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:50px}
   .rev{background:var(--white);border:1px solid var(--line);border-radius:20px;padding:26px 28px 22px;transition:transform .4s var(--ease),box-shadow .4s}
-  .rev:hover{transform:translateY(-4px);box-shadow:0 20px 50px rgba(15,27,45,.1)}
+  .rev:hover{transform:translateY(-4px);border-color:var(--ink2)}
   .rev blockquote{margin:0;font-family:var(--display);font-weight:500;font-size:var(--h5);line-height:1.35;letter-spacing:-.01em;quotes:"\201C" "\201D"}
   .rev blockquote::before{content:open-quote;color:var(--pink)}
   .rev blockquote::after{content:close-quote;color:var(--pink)}
@@ -180,7 +180,7 @@
   .pricelist li span{color:var(--ink2)}
   .pricelist li b{font-family:var(--display);font-weight:600;white-space:nowrap}
   .pack{background:var(--white);border:1px solid var(--line);border-radius:22px;padding:26px 24px;display:flex;flex-direction:column;position:relative;transition:transform .4s var(--ease),box-shadow .4s}
-  .pack:hover{transform:translateY(-4px);box-shadow:0 24px 60px rgba(15,27,45,.12)}
+  .pack:hover{transform:translateY(-4px);border-color:var(--ink2)}
   .after-line{margin-top:26px;color:var(--ink2);max-width:70ch} .after-line b{color:var(--ink);font-weight:600}
   .pack.feat{background:var(--inv-bg);color:var(--inv-ink);border-color:var(--inv-bg)}
   .pack.feat .ph{color:var(--note)}
@@ -294,14 +294,14 @@
   .klist{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin:44px 0 30px}
   .kcard{background:var(--white);border:1px solid var(--line);border-radius:22px;padding:26px 26px 24px;text-decoration:none;display:flex;flex-direction:column;transition:transform .4s var(--ease),box-shadow .4s;position:relative}
   .kcard::before{content:"";position:absolute;left:26px;top:0;width:44px;height:4px;background:var(--pink);border-radius:0 0 4px 4px}
-  .kcard:hover{transform:translateY(-4px);box-shadow:0 24px 60px rgba(15,27,45,.12)}
+  .kcard:hover{transform:translateY(-4px);border-color:var(--ink2)}
   .kcard .cat{font-size:var(--small);color:var(--mute);font-weight:600;margin:6px 0 10px}
   .kcard h3{font-size:var(--h4);margin-bottom:10px} .kcard p{color:var(--ink2);font-size:var(--small);flex:1}
   .kcard .more{margin-top:16px;font-family:var(--display);font-weight:600;color:var(--pink-text)}
   /* About */
   .about{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(30px,5vw,80px);align-items:center}
   .about-photo{position:relative}
-  .about-photo img{border-radius:24px;aspect-ratio:4/5;object-fit:cover;width:100%;transform:rotate(-2deg);box-shadow:0 30px 60px rgba(15,27,45,.16)}
+  .about-photo img{border-radius:24px;aspect-ratio:4/5;object-fit:cover;width:100%;transform:rotate(-2deg)}
   .about-photo .sticky-note{right:auto;left:-14px;bottom:-16px;top:auto;transform:rotate(-5deg);width:200px}
   .about h2{font-size:var(--h2)}
   .about p{color:var(--ink2);margin-top:18px;max-width:54ch;font-size:var(--lead)}
@@ -418,7 +418,7 @@
   /* Werkkaarten op de homepage */
   .wcards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:44px}
   .wcard{display:flex;flex-direction:column;background:var(--white);border:1px solid var(--line);border-radius:20px;overflow:hidden;text-decoration:none;color:inherit;transition:transform .4s var(--ease),box-shadow .4s}
-  .wcard:hover{transform:translateY(-4px);box-shadow:0 20px 50px rgba(15,27,45,.1)}
+  .wcard:hover{transform:translateY(-4px);border-color:var(--ink2)}
   .wcard>img{width:100%;aspect-ratio:16/10;object-fit:cover;display:block;background:var(--paper2)}
   .wcard-t{padding:20px 22px 22px;display:flex;flex-direction:column;gap:8px;flex:1}
   .wcard-t h3{font-size:var(--h5);line-height:1.2;margin:0;letter-spacing:-.02em}
@@ -465,7 +465,7 @@
 
   /* Hero met foto */
   .hero-photo{position:relative;margin:0;justify-self:end;width:min(100%,480px)}
-  .hero-photo img{display:block;width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;border-radius:26px;transform:rotate(2deg);box-shadow:0 30px 60px rgba(15,27,45,.16)}
+  .hero-photo img{display:block;width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;border-radius:26px;transform:rotate(2deg)}
   .hero-photo .sticky-note{right:auto;left:-28px;top:auto;bottom:28px;width:220px;transform:rotate(-4deg)}
   .hero-full .hero-grid{grid-template-columns:1.2fr .8fr}
   @media(max-height:820px) and (min-width:961px){ .hero-photo{width:min(100%,400px)} }
