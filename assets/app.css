@@ -506,14 +506,14 @@
   /* Opbouw van de actieve tegel, zoals Anchor: label, kop klapt omhoog, tekst, beeld schuift van onder in */
   .car-slide{overflow:hidden}
   .car-slide .wcard-t>*{transition:none}
-  .car-slide .cs-client,.car-slide .wcard-t p,.car-slide .wcard-go{opacity:0;transform:translateY(14px)}
-  .car-slide h3{opacity:0;transform:perspective(1200px) rotateX(70deg) translateY(30%);transform-origin:50% 0}
-  .car-slide>img{opacity:0;transform:translateY(28%)}
-  .car.seen .car-slide.on .cs-client{opacity:1;transform:none;transition:opacity .5s ease .25s,transform .5s var(--ease) .25s}
-  .car.seen .car-slide.on h3{opacity:1;transform:none;transition:opacity .8s ease .4s,transform 1s cubic-bezier(.16,1,.3,1) .4s}
-  .car.seen .car-slide.on .wcard-t p{opacity:1;transform:none;transition:opacity .7s ease .65s,transform .7s var(--ease) .65s}
-  .car.seen .car-slide.on .wcard-go{opacity:1;transform:none;transition:opacity .6s ease .95s,transform .6s var(--ease) .95s}
-  .car.seen .car-slide.on>img{opacity:1;transform:none;transition:opacity .9s ease .45s,transform 1.1s cubic-bezier(.16,1,.3,1) .45s}
+  .car:not(.seen) .car-slide .cs-client,.car:not(.seen) .car-slide .wcard-t p,.car:not(.seen) .car-slide .wcard-go{opacity:0;transform:translateY(14px)}
+  .car:not(.seen) .car-slide h3{opacity:0;transform:perspective(1200px) rotateX(70deg) translateY(30%);transform-origin:50% 0}
+  .car:not(.seen) .car-slide>img{opacity:0;transform:translateY(28%)}
+  .car.seen .car-slide .cs-client{opacity:1;transform:none;transition:opacity .5s ease .25s,transform .5s var(--ease) .25s}
+  .car.seen .car-slide h3{opacity:1;transform:none;transition:opacity .8s ease .4s,transform 1s cubic-bezier(.16,1,.3,1) .4s}
+  .car.seen .car-slide .wcard-t p{opacity:1;transform:none;transition:opacity .7s ease .65s,transform .7s var(--ease) .65s}
+  .car.seen .car-slide .wcard-go{opacity:1;transform:none;transition:opacity .6s ease .95s,transform .6s var(--ease) .95s}
+  .car.seen .car-slide>img{opacity:1;transform:none;transition:opacity .9s ease .45s,transform 1.1s cubic-bezier(.16,1,.3,1) .45s}
   .car{margin-top:44px}
   .car-track{display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;
     padding:6px max(var(--pad),calc((100vw - var(--maxw))/2 + var(--pad))) 30px;scroll-padding-left:max(var(--pad),calc((100vw - var(--maxw))/2 + var(--pad)))}
@@ -537,13 +537,8 @@
   .car-tags li{position:relative;padding-left:14px;font-size:var(--small);font-weight:600;color:var(--ink2)}
   .car-tags li::before{content:"";position:absolute;left:0;top:.6em;width:6px;height:6px;border-radius:50%;background:var(--pink)}
   .car-slide .wcard-go{margin-top:28px;font-size:var(--body)}
-  .car-slide .car-tags{opacity:0;transform:translateY(14px)}
-  .car.seen .car-slide.on .car-tags{opacity:1;transform:none;transition:opacity .6s ease .75s,transform .6s var(--ease) .75s}
+  .car:not(.seen) .car-slide .car-tags{opacity:0;transform:translateY(14px)}
+  .car.seen .car-slide .car-tags{opacity:1;transform:none;transition:opacity .6s ease .75s,transform .6s var(--ease) .75s}
   @media(prefers-reduced-motion:reduce){ .car-slide .car-tags{opacity:1!important;transform:none!important} }
   @media(min-width:961px){ .wcard.wfeat.car-slide>img{height:100%;min-height:440px;aspect-ratio:auto;object-fit:cover;object-position:left top} }
 
-  /* Komende en vorige case tonen hun eigen beeld over de hele tegel, geen lege witte rand */
-  .car-slide{position:relative}
-  .car-slide::after{content:"";position:absolute;inset:0;background:var(--paper2) var(--peek) left center/cover no-repeat;opacity:1;transition:opacity .5s ease;pointer-events:none;z-index:2}
-  .car.seen .car-slide.on::after{opacity:0;transition:opacity .7s ease .1s}
-  @media(prefers-reduced-motion:reduce){ .car-slide.on::after{opacity:0!important;transition:none!important} }

@@ -72,7 +72,7 @@
       function f(t){ if(!t0) t0=t; var p=Math.min(1,(t-t0)/dur), e=1-Math.pow(1-p,4); track.scrollLeft=from+d*e;
         if(p<1) requestAnimationFrame(f); else { track.style.scrollSnapType=''; busy=false; } }
       requestAnimationFrame(f); }
-    function go(i){ i=Math.max(0,Math.min(slides.length-1,i)); slides.forEach(function(sl){ sl.classList.remove('on'); }); idx=-1; glide(x(i)); setTimeout(function(){ mark(i); },reduce?0:250); }
+    function go(i){ i=Math.max(0,Math.min(slides.length-1,i)); glide(x(i)); mark(i); }
     btns.forEach(function(b){ b.addEventListener('click',function(){ go(idx+(+b.dataset.dir)); }); });
     track.addEventListener('keydown',function(e){ if(e.key==='ArrowRight'||e.key==='ArrowLeft'){ e.preventDefault(); go(idx+(e.key==='ArrowRight'?1:-1)); } });
     var st; track.addEventListener('scroll',function(){ if(busy) return; clearTimeout(st); st=setTimeout(function(){ var best=0,bd=1e9; slides.forEach(function(sl,i){ var d=Math.abs(x(i)-track.scrollLeft); if(d<bd){bd=d;best=i;} }); mark(best); },140); },{passive:true});
