@@ -34,10 +34,9 @@
     notes.forEach(function(id,i){ setTimeout(function(){ document.getElementById(id).classList.add('show'); }, t+i*520); });
     setTimeout(function(){ document.getElementById('ul1').classList.add('on'); }, 700);
   }
-  if(hasGSAP && !reduce){
-    gsap.registerPlugin(ScrollTrigger);
-    gsap.from('[data-hero]',{opacity:0,y:24,duration:.9,ease:'power3.out',stagger:.1,onComplete:heroSeq});
-  } else { heroSeq(); }
+  /* De hero komt binnen met CSS (app.css, hero-in). Daarna de strepen en notities, zoals voorheen na de animatie */
+  if(hasGSAP) gsap.registerPlugin(ScrollTrigger);
+  if(!reduce && document.querySelector('[data-hero]')){ setTimeout(heroSeq, 900 + 100*(document.querySelectorAll('[data-hero]').length-1)); } else { heroSeq(); }
 
 
 
