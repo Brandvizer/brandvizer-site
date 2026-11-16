@@ -23,7 +23,7 @@
 <meta name="theme-color" content="#0C1626" media="(prefers-color-scheme: dark)">
 <link rel="preload" href="/assets/fonts/bricolage-grotesque-latin-opsz-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/instrument-sans-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/assets/fonts.css?v=20261115a">
+<link rel="stylesheet" href="/assets/fonts.css?v=20261116a">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"ProfessionalService","name":"Brandvizer","description":"Websites, webshops en apps voor het MKB. Ontwerp en bouw door één persoon, vaste prijs, hosting geregeld.","areaServed":[{"@type":"City","name":"Apeldoorn"},{"@type":"City","name":"Zwolle"},{"@type":"City","name":"Deventer"},{"@type":"City","name":"Vaassen"},{"@type":"City","name":"Epe"},{"@type":"City","name":"Heerde"},{"@type":"City","name":"Hattem"},{"@type":"City","name":"Twello"},{"@type":"City","name":"Raalte"}],"address":{"@type":"PostalAddress","addressLocality":"Vaassen","addressRegion":"Gelderland","addressCountry":"NL"},"email":"rudolf@brandvizer.nl","telephone":"+31643426082","url":"https://www.brandvizer.nl","image":"https://www.brandvizer.nl/og.png","priceRange":"€2.450 tot €13.950","knowsAbout":["Webdesign","Website laten maken","Webshop","App ontwikkeling","UX design","Design systems"],"founder":{"@type":"Person","name":"Rudolf van der Velde"}}
 </script>
@@ -307,8 +307,8 @@
 
 <a class="mcta" href="/prijzen#check">Welk pakket past bij mij?</a>
 
-<script defer src="/assets/vendor/gsap.min.js?v=3.12.5"></script>
-<script defer src="/assets/vendor/ScrollTrigger.min.js?v=3.12.5"></script>
-<script defer src="/assets/app.js?v=20261115a"></script>
+<!-- Animaties en interactie pas na het laden van de pagina, in deze volgorde. Zo telt GSAP (115 KB) niet mee
+     voor de eerste weergave en de grootste kop (Lighthouse snelheid). De hero beweegt al met CSS. -->
+<script>addEventListener("load",function(){var l=["/assets/vendor/gsap.min.js?v=3.12.5","/assets/vendor/ScrollTrigger.min.js?v=3.12.5","/assets/app.js?v=20261115a"];(function volgende(){var u=l.shift();if(!u)return;var e=document.createElement("script");e.src=u;e.onload=volgende;document.body.appendChild(e);})();});</script>
 </body>
 </html>
