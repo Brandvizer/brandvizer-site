@@ -142,7 +142,7 @@
     stuur(URL_AANVRAAG)
       .then(function(o){ return o.ok || (o.j && o.j.error && /e-mailadres|Te veel/.test(o.j.error)) ? o : stuur('/api/aanvraag'); }, function(){ return stuur('/api/aanvraag'); })
       .then(function(o){
-        if(o.ok){ book.classList.remove('on'); document.getElementById('done').classList.add('on'); document.getElementById('checkBody').scrollIntoView({behavior:reduce?'auto':'smooth',block:'nearest'}); }
+        if(o.ok){ try{ if(window.umami) umami.track('Formulier verstuurd'); }catch(e){} book.classList.remove('on'); document.getElementById('done').classList.add('on'); document.getElementById('checkBody').scrollIntoView({behavior:reduce?'auto':'smooth',block:'nearest'}); }
         else { errEl.textContent='Versturen lukte niet ('+(o.j&&o.j.error?o.j.error:'onbekende fout')+'). Ik open je mailprogramma als alternatief.'; errEl.hidden=false; setTimeout(fallbackMail,1200); }
       })
       .catch(function(){ errEl.textContent='Geen verbinding met de server. Ik open je mailprogramma als alternatief.'; errEl.hidden=false; setTimeout(fallbackMail,1200); })

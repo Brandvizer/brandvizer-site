@@ -32,6 +32,8 @@
 <script defer src="/_vercel/insights/script.js"></script>
 <link rel="canonical" href="https://www.brandvizer.nl/">
 <script defer src="/assets/theme.js?v=20261022b"></script>
+<!-- Bezoekers en conversies: Umami, zonder cookies. Telt alleen op het live domein. -->
+<script defer src="https://cloud.umami.is/script.js" data-website-id="3149d8e3-6928-4c83-882a-c2cef9a07a5a" data-domains="www.brandvizer.nl,brandvizer.nl"></script>
 </head>
 <body>
 <header class="nav" id="nav">
@@ -289,8 +291,8 @@
       <p class="regio">Ik werk vanuit Vaassen en kom graag langs in <b>Apeldoorn, Zwolle, Deventer</b>, de Veluwe en alles wat daartussen ligt voor een kop koffie. Verder weg? Dan doen we het gewoon even online.</p>
     </div>
     <div class="ways">
-      <a class="way main" href="mailto:rudolf@brandvizer.nl?subject=Kennismaking%20Brandvizer&body=Hoi%20Rudolf%2C%0A%0AIk%20wil%20graag%20kennismaken.%20Waar%20het%20bij%20ons%20wringt%3A%20"><div><b>Mail me</b><br><span>rudolf@brandvizer.nl</span></div><span>→</span></a>
-      <a class="way" href="tel:+31643426082"><div><b>Of bel gewoon</b><br><span>+31 6 43 42 60 82</span></div><span>→</span></a>
+      <a class="way main" href="mailto:rudolf@brandvizer.nl?subject=Kennismaking%20Brandvizer&body=Hoi%20Rudolf%2C%0A%0AIk%20wil%20graag%20kennismaken.%20Waar%20het%20bij%20ons%20wringt%3A%20" data-umami-event="Klik mail"><div><b>Mail me</b><br><span>rudolf@brandvizer.nl</span></div><span>→</span></a>
+      <a class="way" href="tel:+31643426082" data-umami-event="Klik telefoon"><div><b>Of bel gewoon</b><br><span>+31 6 43 42 60 82</span></div><span>→</span></a>
       <a class="way" href="/prijzen#check"><div><b>Eerst zelf kijken?</b><br><span>Welk pakket past bij mij?</span></div><span>→</span></a>
     </div>
   </div>
@@ -301,7 +303,7 @@
 <footer class="wrap">
   <div class="row">
     <span>&copy; 2026 Brandvizer &middot; Rudolf van der Velde &middot; Vaassen &middot; Websites en apps voor Apeldoorn, Zwolle, Deventer en de Veluwe</span>
-    <span><a href="/werk">Werk</a><a href="/#aanpak">Aanpak</a><a href="/prijzen">Prijzen</a><a href="/kennis">Kennis</a><a href="/#over">Over mij</a><a href="/privacy">Privacy</a><a href="/voorwaarden">Voorwaarden</a><a href="mailto:rudolf@brandvizer.nl">Mail</a></span>
+    <span><a href="/werk">Werk</a><a href="/#aanpak">Aanpak</a><a href="/prijzen">Prijzen</a><a href="/kennis">Kennis</a><a href="/#over">Over mij</a><a href="/privacy">Privacy</a><a href="/voorwaarden">Voorwaarden</a><a href="mailto:rudolf@brandvizer.nl" data-umami-event="Klik mail">Mail</a></span>
   </div>
 </footer>
 
@@ -309,6 +311,6 @@
 
 <!-- Animaties en interactie pas na het laden van de pagina, in deze volgorde. Zo telt GSAP (115 KB) niet mee
      voor de eerste weergave en de grootste kop (Lighthouse snelheid). De hero beweegt al met CSS. -->
-<script>addEventListener("load",function(){var l=["/assets/vendor/gsap.min.js?v=3.12.5","/assets/vendor/ScrollTrigger.min.js?v=3.12.5","/assets/app.js?v=20261115a"];(function volgende(){var u=l.shift();if(!u)return;var e=document.createElement("script");e.src=u;e.onload=volgende;document.body.appendChild(e);})();});</script>
+<script>addEventListener("load",function(){var l=["/assets/vendor/gsap.min.js?v=3.12.5","/assets/vendor/ScrollTrigger.min.js?v=3.12.5","/assets/app.js?v=20261116a"];(function volgende(){var u=l.shift();if(!u)return;var e=document.createElement("script");e.src=u;e.onload=volgende;document.body.appendChild(e);})();});</script>
 </body>
 </html>
