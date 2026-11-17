@@ -217,6 +217,7 @@
       if(m) el.textContent=(m.vanaf?'vanaf ':'')+e(m.prijs)+(m.eenheid?' '+m.eenheid:'');
     });
     document.querySelectorAll('[data-onderhoud]').forEach(function(el){ var o=(j.onderhoud||{})[el.getAttribute('data-onderhoud')]; if(o) el.textContent=e(o.prijs)+' per maand'; });
+    document.querySelectorAll('[data-zorgeloos]').forEach(function(el){ if(j.zorgeloos) el.textContent=e(j.zorgeloos.prijs)+' per '+(j.zorgeloos.periode||'jaar'); });
     document.querySelectorAll('[data-kickstart]').forEach(function(el){ if(j.kickstart) el.textContent=e(j.kickstart.prijs); });
     try { document.dispatchEvent(new CustomEvent('prijzen',{detail:j})); } catch(err){}
   }).catch(function(){});
